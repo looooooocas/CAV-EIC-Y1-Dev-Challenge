@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -g -std=gnu++20 -arch arm64 -o CMakeFiles/dev_challenge.dir/main.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/main.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/main.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -g -std=gnu++20 -arch arm64 -o CMakeFiles/dev_challenge.dir/antworld.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/antworld.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/antworld.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/antworld.cpp.o"
+}
+]
