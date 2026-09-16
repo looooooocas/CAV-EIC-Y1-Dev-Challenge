@@ -5,10 +5,69 @@
 #include "../include/antworld.h"
 
 
+bool onFood(Ant ant, std::vector<Coord> visibleFood){
+    for(Coord c : visibleFood){
+        if(c == ant.position){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool seesFood(Ant ant, AntWorld world){
+    return !ant.foodScan(world.foodMap).empty();
+}
+
+void wander(Ant& ant, AntWorld& world){
+    int xOrY = rand() % 2;
+    int positive = rand() % 2;
+    int moveAmt = positive ? 1 : -1;
+    Coord nextStep = Coord(ant.position.first + (xOrY * moveAmt), ant.position.second+ ((1 - xOrY) * moveAmt));
+    ant.move(world.terrainMap, nextStep, world.foodMap);
+}
+
+
+void dumbSearch(Ant& ant, AntWorld& world){
+    /*
+    hasFood -> go home
+    onFood -> pick it up
+    seesFood -> go to it
+    wander
+    */
+    if(ant.carryingFood){
+        Coord initPos = ant.position;
+        Coord finalPos = ant.returnHome(world.terrainMap, world.foodMap);
+        if (finalPos == initPos){ // just to use the last energy, obviously not smart
+            wander(ant, world);
+        }
+    } else if (seesFood(ant, world)){
+        Coord initPos = ant.position;
+        Coord finalPos = ant.move(world.terrainMap, ant.foodScan(world.foodMap)[0], world.foodMap);
+        if (finalPos == initPos){ // just to use the last energy, obviously not smart
+            wander(ant, world);
+        }
+    } else {
+        wander(ant, world);
+    }
+    return;
+}
+
+void outputEnergies(std::vector<Ant> ants){
+    for (int i = 0; i < ants.size(); i++){
+        printf("Ant %d: %d\n", i, ants[i].energy);
+    }
+}
+
 /** @brief this is where you as the applicant will make use of the above functions to develop your solution.
  * here are some existing examples of how calling these functions works to help get you started!
  */
 void AntWorld::forage() {
+
+    for(Ant& ant : this->ants){
+        outputEnergies(this->ants);
+        dumbSearch(ant, *this);
+    }
+
     // std::vector<Coord> visibleFood = this->ants[0].foodScan(this->foodMap);
     //
     // Coord desiredDestination = Coord(5, 5);
@@ -24,39 +83,7 @@ void AntWorld::forage() {
 
 /** You may insert any custom functions below **/
 
-bool onFood(Ant ant, std::vector<Coord> visibleFood){
-    for(Coord c : visibleFood){
-        if(c == ant.position){
-            return true;
-        }
-    }
-    return false;
-}
 
-void dumbSearch(Ant& ant, AntWorld& world){
-    /*
-    hasFood -> go home
-    onFood -> pick it up
-    seesFood -> go to it
-    wander
-    */
-    if(ant.carryingFood){
-        ant.returnHome(world.terrainMap, world.foodMap);
-    } else if(onFood(ant, ant.foodScan(world.foodMap))){
-        world.foodMap[ant.position.first][ant.position.second] = 0;
-        ant.carryingFood = true;
-    } else if (seesFood(ant, world)){
-        Coord finalPos = ant.move(world.terrainMap, ant.foodScan(world.foodMap)[0], world.foodMap);
-        if (finalPos == ant.homeCoord){
-            world.score++;
-            ant.carryingFood = false;
-        } else {
-            
-        }
-    } else {
-         wander(ant, world);
-    }
-}
 
 
 
