@@ -23,3 +23,40 @@ void AntWorld::forage() {
 }
 
 /** You may insert any custom functions below **/
+
+bool onFood(Ant ant, std::vector<Coord> visibleFood){
+    for(Coord c : visibleFood){
+        if(c == ant.position){
+            return true;
+        }
+    }
+    return false;
+}
+
+void dumbSearch(Ant& ant, AntWorld& world){
+    /*
+    hasFood -> go home
+    onFood -> pick it up
+    seesFood -> go to it
+    wander
+    */
+    if(ant.carryingFood){
+        ant.returnHome(world.terrainMap, world.foodMap);
+    } else if(onFood(ant, ant.foodScan(world.foodMap))){
+        world.foodMap[ant.position.first][ant.position.second] = 0;
+        ant.carryingFood = true;
+    } else if (seesFood(ant, world)){
+        Coord finalPos = ant.move(world.terrainMap, ant.foodScan(world.foodMap)[0], world.foodMap);
+        if (finalPos == ant.homeCoord){
+            world.score++;
+            ant.carryingFood = false;
+        } else {
+            
+        }
+    } else {
+         wander(ant, world);
+    }
+}
+
+
+

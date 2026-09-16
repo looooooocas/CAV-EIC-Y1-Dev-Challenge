@@ -49,24 +49,40 @@ cmake_ninja_workdir = /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/
 
 build cmake_object_order_depends_target_dev_challenge: phony || .
 
-build CMakeFiles/dev_challenge.dir/main.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/main.cpp || cmake_object_order_depends_target_dev_challenge
+build CMakeFiles/dev_challenge.dir/src/main.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/main.cpp || cmake_object_order_depends_target_dev_challenge
   CONFIG = Debug
-  DEP_FILE = CMakeFiles/dev_challenge.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/main.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
   OBJECT_DIR = CMakeFiles/dev_challenge.dir
-  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir
-  TARGET_COMPILE_PDB = CMakeFiles/dev_challenge.dir/
-  TARGET_PDB = dev_challenge.pdb
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
 
-build CMakeFiles/dev_challenge.dir/antworld.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/antworld.cpp || cmake_object_order_depends_target_dev_challenge
+build CMakeFiles/dev_challenge.dir/src/applicant_solution.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_dev_challenge
   CONFIG = Debug
-  DEP_FILE = CMakeFiles/dev_challenge.dir/antworld.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/applicant_solution.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
   OBJECT_DIR = CMakeFiles/dev_challenge.dir
-  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir
-  TARGET_COMPILE_PDB = CMakeFiles/dev_challenge.dir/
-  TARGET_PDB = dev_challenge.pdb
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
+build CMakeFiles/dev_challenge.dir/src/antworld.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_dev_challenge
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/antworld.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/dev_challenge.dir
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
+build CMakeFiles/dev_challenge.dir/src/useable_functions.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp || cmake_object_order_depends_target_dev_challenge
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/useable_functions.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/dev_challenge.dir
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
 
 
@@ -77,17 +93,260 @@ build CMakeFiles/dev_challenge.dir/antworld.cpp.o: CXX_COMPILER__dev_challenge_u
 #############################################
 # Link the executable dev_challenge
 
-build dev_challenge: CXX_EXECUTABLE_LINKER__dev_challenge_Debug CMakeFiles/dev_challenge.dir/main.cpp.o CMakeFiles/dev_challenge.dir/antworld.cpp.o
+build dev_challenge: CXX_EXECUTABLE_LINKER__dev_challenge_Debug CMakeFiles/dev_challenge.dir/src/main.cpp.o CMakeFiles/dev_challenge.dir/src/applicant_solution.cpp.o CMakeFiles/dev_challenge.dir/src/antworld.cpp.o CMakeFiles/dev_challenge.dir/src/useable_functions.cpp.o
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
   OBJECT_DIR = CMakeFiles/dev_challenge.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/dev_challenge.dir/
   TARGET_FILE = dev_challenge
-  TARGET_PDB = dev_challenge.pdb
+  TARGET_PDB = dev_challenge.dbg
   TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
+
+#############################################
+# Utility command for Experimental
+
+build Experimental: phony CMakeFiles/Experimental
+
+
+#############################################
+# Utility command for Nightly
+
+build Nightly: phony CMakeFiles/Nightly
+
+
+#############################################
+# Utility command for Continuous
+
+build Continuous: phony CMakeFiles/Continuous
+
+
+#############################################
+# Utility command for NightlyMemoryCheck
+
+build NightlyMemoryCheck: phony CMakeFiles/NightlyMemoryCheck
+
+
+#############################################
+# Utility command for NightlyStart
+
+build NightlyStart: phony CMakeFiles/NightlyStart
+
+
+#############################################
+# Utility command for NightlyUpdate
+
+build NightlyUpdate: phony CMakeFiles/NightlyUpdate
+
+
+#############################################
+# Utility command for NightlyConfigure
+
+build NightlyConfigure: phony CMakeFiles/NightlyConfigure
+
+
+#############################################
+# Utility command for NightlyBuild
+
+build NightlyBuild: phony CMakeFiles/NightlyBuild
+
+
+#############################################
+# Utility command for NightlyTest
+
+build NightlyTest: phony CMakeFiles/NightlyTest
+
+
+#############################################
+# Utility command for NightlyCoverage
+
+build NightlyCoverage: phony CMakeFiles/NightlyCoverage
+
+
+#############################################
+# Utility command for NightlyMemCheck
+
+build NightlyMemCheck: phony CMakeFiles/NightlyMemCheck
+
+
+#############################################
+# Utility command for NightlySubmit
+
+build NightlySubmit: phony CMakeFiles/NightlySubmit
+
+
+#############################################
+# Utility command for ExperimentalStart
+
+build ExperimentalStart: phony CMakeFiles/ExperimentalStart
+
+
+#############################################
+# Utility command for ExperimentalUpdate
+
+build ExperimentalUpdate: phony CMakeFiles/ExperimentalUpdate
+
+
+#############################################
+# Utility command for ExperimentalConfigure
+
+build ExperimentalConfigure: phony CMakeFiles/ExperimentalConfigure
+
+
+#############################################
+# Utility command for ExperimentalBuild
+
+build ExperimentalBuild: phony CMakeFiles/ExperimentalBuild
+
+
+#############################################
+# Utility command for ExperimentalTest
+
+build ExperimentalTest: phony CMakeFiles/ExperimentalTest
+
+
+#############################################
+# Utility command for ExperimentalCoverage
+
+build ExperimentalCoverage: phony CMakeFiles/ExperimentalCoverage
+
+
+#############################################
+# Utility command for ExperimentalMemCheck
+
+build ExperimentalMemCheck: phony CMakeFiles/ExperimentalMemCheck
+
+
+#############################################
+# Utility command for ExperimentalSubmit
+
+build ExperimentalSubmit: phony CMakeFiles/ExperimentalSubmit
+
+
+#############################################
+# Utility command for ContinuousStart
+
+build ContinuousStart: phony CMakeFiles/ContinuousStart
+
+
+#############################################
+# Utility command for ContinuousUpdate
+
+build ContinuousUpdate: phony CMakeFiles/ContinuousUpdate
+
+
+#############################################
+# Utility command for ContinuousConfigure
+
+build ContinuousConfigure: phony CMakeFiles/ContinuousConfigure
+
+
+#############################################
+# Utility command for ContinuousBuild
+
+build ContinuousBuild: phony CMakeFiles/ContinuousBuild
+
+
+#############################################
+# Utility command for ContinuousTest
+
+build ContinuousTest: phony CMakeFiles/ContinuousTest
+
+
+#############################################
+# Utility command for ContinuousCoverage
+
+build ContinuousCoverage: phony CMakeFiles/ContinuousCoverage
+
+
+#############################################
+# Utility command for ContinuousMemCheck
+
+build ContinuousMemCheck: phony CMakeFiles/ContinuousMemCheck
+
+
+#############################################
+# Utility command for ContinuousSubmit
+
+build ContinuousSubmit: phony CMakeFiles/ContinuousSubmit
+
+# =============================================================================
+# Object build statements for EXECUTABLE target antworld_tests
+
+
+#############################################
+# Order-only phony target for antworld_tests
+
+build cmake_object_order_depends_target_antworld_tests: phony || .
+
+build CMakeFiles/antworld_tests.dir/test/antworld_tests.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/antworld_tests.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/test/antworld_tests.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/test
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+build CMakeFiles/antworld_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/applicant_solution.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+build CMakeFiles/antworld_tests.dir/src/antworld.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/antworld.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+build CMakeFiles/antworld_tests.dir/src/useable_functions.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/useable_functions.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target antworld_tests
+
+
+#############################################
+# Link the executable antworld_tests
+
+build antworld_tests: CXX_EXECUTABLE_LINKER__antworld_tests_Debug CMakeFiles/antworld_tests.dir/test/antworld_tests.cpp.o CMakeFiles/antworld_tests.dir/src/applicant_solution.cpp.o CMakeFiles/antworld_tests.dir/src/antworld.cpp.o CMakeFiles/antworld_tests.dir/src/useable_functions.cpp.o
+  CONFIG = Debug
+  FLAGS = -g -arch arm64
+  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = antworld_tests
+  TARGET_PDB = antworld_tests.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -113,6 +372,230 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Custom command for CMakeFiles/Experimental
+
+build CMakeFiles/Experimental | ${cmake_ninja_workdir}CMakeFiles/Experimental: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/Nightly
+
+build CMakeFiles/Nightly | ${cmake_ninja_workdir}CMakeFiles/Nightly: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/Continuous
+
+build CMakeFiles/Continuous | ${cmake_ninja_workdir}CMakeFiles/Continuous: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyMemoryCheck
+
+build CMakeFiles/NightlyMemoryCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemoryCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=NightlyMemoryCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyStart
+
+build CMakeFiles/NightlyStart | ${cmake_ninja_workdir}CMakeFiles/NightlyStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyUpdate
+
+build CMakeFiles/NightlyUpdate | ${cmake_ninja_workdir}CMakeFiles/NightlyUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyConfigure
+
+build CMakeFiles/NightlyConfigure | ${cmake_ninja_workdir}CMakeFiles/NightlyConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyBuild
+
+build CMakeFiles/NightlyBuild | ${cmake_ninja_workdir}CMakeFiles/NightlyBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyTest
+
+build CMakeFiles/NightlyTest | ${cmake_ninja_workdir}CMakeFiles/NightlyTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyCoverage
+
+build CMakeFiles/NightlyCoverage | ${cmake_ninja_workdir}CMakeFiles/NightlyCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyMemCheck
+
+build CMakeFiles/NightlyMemCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlySubmit
+
+build CMakeFiles/NightlySubmit | ${cmake_ninja_workdir}CMakeFiles/NightlySubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalStart
+
+build CMakeFiles/ExperimentalStart | ${cmake_ninja_workdir}CMakeFiles/ExperimentalStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalUpdate
+
+build CMakeFiles/ExperimentalUpdate | ${cmake_ninja_workdir}CMakeFiles/ExperimentalUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalConfigure
+
+build CMakeFiles/ExperimentalConfigure | ${cmake_ninja_workdir}CMakeFiles/ExperimentalConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalBuild
+
+build CMakeFiles/ExperimentalBuild | ${cmake_ninja_workdir}CMakeFiles/ExperimentalBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalTest
+
+build CMakeFiles/ExperimentalTest | ${cmake_ninja_workdir}CMakeFiles/ExperimentalTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalCoverage
+
+build CMakeFiles/ExperimentalCoverage | ${cmake_ninja_workdir}CMakeFiles/ExperimentalCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalMemCheck
+
+build CMakeFiles/ExperimentalMemCheck | ${cmake_ninja_workdir}CMakeFiles/ExperimentalMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalSubmit
+
+build CMakeFiles/ExperimentalSubmit | ${cmake_ninja_workdir}CMakeFiles/ExperimentalSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousStart
+
+build CMakeFiles/ContinuousStart | ${cmake_ninja_workdir}CMakeFiles/ContinuousStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousUpdate
+
+build CMakeFiles/ContinuousUpdate | ${cmake_ninja_workdir}CMakeFiles/ContinuousUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousConfigure
+
+build CMakeFiles/ContinuousConfigure | ${cmake_ninja_workdir}CMakeFiles/ContinuousConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousBuild
+
+build CMakeFiles/ContinuousBuild | ${cmake_ninja_workdir}CMakeFiles/ContinuousBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousTest
+
+build CMakeFiles/ContinuousTest | ${cmake_ninja_workdir}CMakeFiles/ContinuousTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousCoverage
+
+build CMakeFiles/ContinuousCoverage | ${cmake_ninja_workdir}CMakeFiles/ContinuousCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousMemCheck
+
+build CMakeFiles/ContinuousMemCheck | ${cmake_ninja_workdir}CMakeFiles/ContinuousMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousSubmit
+
+build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
 # =============================================================================
 # Target aliases.
 
@@ -124,14 +607,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
 
-build codegen: phony
-
-# =============================================================================
-
-#############################################
-# Folder: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
-
-build all: phony dev_challenge
+build all: phony dev_challenge antworld_tests
 
 # =============================================================================
 # Built-in targets
@@ -140,14 +616,14 @@ build all: phony dev_challenge
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/cmake_install.cmake: RERUN_CMAKE | /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/CMakeLists.txt /opt/homebrew/share/cmake/Modules/CMakeCCompiler.cmake.in /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c /opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeNinjaFindMake.cmake /opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake /opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/PellesC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCLinker.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake /opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/4.4.3/CMakeCCompiler.cmake CMakeFiles/4.4.3/CMakeCXXCompiler.cmake CMakeFiles/4.4.3/CMakeSystem.cmake
+build build.ninja /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/cmake_install.cmake /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CTestTestfile.cmake: RERUN_CMAKE | /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/CMakeLists.txt /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CTest.cmake /opt/homebrew/share/cmake/Modules/CTestTargets.cmake /opt/homebrew/share/cmake/Modules/CTestUseLaunchers.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/DartConfiguration.tcl.in /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/share/cmake/Templates/CTestScript.cmake.in CMakeCache.txt CMakeFiles/4.4.3/CMakeCXXCompiler.cmake CMakeFiles/4.4.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/CMakeLists.txt /opt/homebrew/share/cmake/Modules/CMakeCCompiler.cmake.in /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c /opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake /opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeNinjaFindMake.cmake /opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake /opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake /opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/PellesC-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCLinker.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake /opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/4.4.3/CMakeCCompiler.cmake CMakeFiles/4.4.3/CMakeCXXCompiler.cmake CMakeFiles/4.4.3/CMakeSystem.cmake: phony
+build /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/CMakeLists.txt /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CTest.cmake /opt/homebrew/share/cmake/Modules/CTestTargets.cmake /opt/homebrew/share/cmake/Modules/CTestUseLaunchers.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/DartConfiguration.tcl.in /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/share/cmake/Templates/CTestScript.cmake.in CMakeCache.txt CMakeFiles/4.4.3/CMakeCXXCompiler.cmake CMakeFiles/4.4.3/CMakeSystem.cmake: phony
 
 
 #############################################
