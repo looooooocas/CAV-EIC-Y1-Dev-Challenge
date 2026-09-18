@@ -47,6 +47,7 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies, std::vector<int> fo
     count sort round trip distances to each food source
     iterate through that list and subtract distances while incrementing food collected until we run out of energy
     divide by total food on the map
+    The food selection is optimal but the ant assignment may be improvable
     */
     int optimal = 0;
     for (int dist = 0; dist < foodAtDist.size(); dist++ ){
@@ -71,8 +72,8 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies, std::vector<int> fo
     return (double)optimal / totalFood;
 }
 
-double Analysis::perfectOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist){ 
-    // assumes no lost energy due to mismatches ie 10 ants with 1 energy are assumed to be able to get a food at dist 5
+double Analysis::naiveOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist){ 
+    // assumes no lost energy due to mismatches ie 10 ants with 1 energy are assumed to be able to get a food at dist 5 with round trip cost 10
     int energyTotal = std::accumulate(antEnergies.begin(), antEnergies.end(), 0);
     int foodPotential = 0;
     for (int dist = 0; dist < foodAtDist.size(); dist++){
@@ -89,11 +90,11 @@ double Analysis::perfectOptimum(std::vector<int> antEnergies, std::vector<int> f
     return (double)foodPotential / totalFood;
 }
 
-double Analysis::optimal(){
+double Analysis::optimal(){ // This is pointless rn beyond the args
     std::vector<int> foodAtDist = getFoodDists(world);
     std::sort(antEnergies.begin(), antEnergies.end());
 
-    return perfectOptimum(antEnergies, foodAtDist);
+    return naiveOptimum(antEnergies, foodAtDist);
 }
 
 double Analysis::efficiency(){ //
