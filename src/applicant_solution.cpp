@@ -30,7 +30,6 @@ void wander(Ant& ant, AntWorld& world){
 void dumbSearch(Ant& ant, AntWorld& world){
     /*
     hasFood -> go home
-    onFood -> pick it up
     seesFood -> go to it
     wander
     */
@@ -43,7 +42,7 @@ void dumbSearch(Ant& ant, AntWorld& world){
     } else if (seesFood(ant, world)){
         Coord initPos = ant.position;
         Coord finalPos = ant.move(world.terrainMap, ant.foodScan(world.foodMap)[0], world.foodMap);
-        if (finalPos == initPos){ // just to use the last energy, obviously not smart
+        if (finalPos == initPos){ // just to use the last energy, obviously not smart. It's actually possible to become completely stuck because of height diff.
             wander(ant, world);
         }
     } else {
