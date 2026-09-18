@@ -48,8 +48,6 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies, std::vector<int> fo
     iterate through that list and subtract distances while incrementing food collected until we run out of energy
     divide by total food on the map
     */
-    // greedily assign ants to food sources // is this truly the optimal output? the other option is to assume 100% efficiency (all energy brings back 1 food)
-    // if this algorithm is not accurate what does that tell us about how to play?
     int optimal = 0;
     for (int dist = 0; dist < foodAtDist.size(); dist++ ){
         while(foodAtDist[dist] > 0){
@@ -61,7 +59,13 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies, std::vector<int> fo
                     foodAtDist[dist]--;
                     break;
                 }
+            } // only exits if no single ant can make the trip
+            if (!antEnergies.empty()){
+                foodAtDist[dist] -= 1;
+                foodAtDist[dist - antEnergies.back()] += 1;
+                antEnergies.pop_back();
             }
+            std::sort(antEnergies.begin(), antEnergies.end()); // re-sort for next iteration
         }
     }
     return (double)optimal / totalFood;
@@ -109,6 +113,9 @@ int Analysis::incompletes(){
     return count;
 }
 
+
+
+//Tests --------------------------------------
 
 
 
