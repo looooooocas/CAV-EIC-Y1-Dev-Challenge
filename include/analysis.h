@@ -7,7 +7,9 @@ class Analysis{
 public:
     Analysis(const AntWorld &world);
 
-    double optimal();
+    double greedyOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist);
+
+    double naiveOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist);
 
     double results();
     
@@ -15,16 +17,12 @@ public:
     
     int incompletes(); 
     
-    //subOptimals(); investigates how frequently we wasted energy e.g. could have take a more direct path if we had waited for a scout, TBD
+    // int lostEnergy();
 
     AntWorld world;
 
 private: 
     std::vector<int> getFoodDists(const AntWorld &world);
-
-    double greedyOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist);
-
-    double perfectOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist);
 
     int totalFood;
     std::vector<int> antEnergies; 

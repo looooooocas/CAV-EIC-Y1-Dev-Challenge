@@ -90,13 +90,6 @@ double Analysis::naiveOptimum(std::vector<int> antEnergies, std::vector<int> foo
     return (double)foodPotential / totalFood;
 }
 
-double Analysis::optimal(){ // This is pointless rn beyond the args
-    std::vector<int> foodAtDist = getFoodDists(world);
-    std::sort(antEnergies.begin(), antEnergies.end());
-
-    return naiveOptimum(antEnergies, foodAtDist);
-}
-
 double Analysis::efficiency(){ //
     int energyTotal = std::accumulate(antEnergies.begin(), antEnergies.end(), 0);
     return (double)energyTotal / world.score;
