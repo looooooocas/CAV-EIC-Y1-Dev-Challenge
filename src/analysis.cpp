@@ -42,13 +42,14 @@ std::vector<int> Analysis::getFoodDists(const AntWorld &world){
     return foodAtDist;
 }
 
-double Analysis::greedyOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist){
+double Analysis::greedyOptimum(std::vector<int> antEnergies){
     /*
     count sort round trip distances to each food source
     iterate through that list and subtract distances while incrementing food collected until we run out of energy
     divide by total food on the map
     The food selection is optimal but the ant assignment may be improvable
     */
+    std::vector<int> foodAtDist = getFoodDists(world);
     int optimal = 0;
     for (int dist = 0; dist < foodAtDist.size(); dist++ ){
         while(foodAtDist[dist] > 0){
@@ -72,8 +73,10 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies, std::vector<int> fo
     return (double)optimal / totalFood;
 }
 
-double Analysis::naiveOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist){ 
+double Analysis::naiveOptimum(std::vector<int> antEnergies){ 
     // assumes no lost energy due to mismatches ie 10 ants with 1 energy are assumed to be able to get a food at dist 5 with round trip cost 10
+    std::sort(antEnergies.begin(), antEnergies.end());
+    std::vector<int> foodAtDist = getFoodDists(world);
     int energyTotal = std::accumulate(antEnergies.begin(), antEnergies.end(), 0);
     int foodPotential = 0;
     for (int dist = 0; dist < foodAtDist.size(); dist++){
@@ -90,12 +93,12 @@ double Analysis::naiveOptimum(std::vector<int> antEnergies, std::vector<int> foo
     return (double)foodPotential / totalFood;
 }
 
-double Analysis::efficiency(){ //
+double Analysis::efficiency(){ // the analysis needs to be instantiated before the run for this to work
     int energyTotal = std::accumulate(antEnergies.begin(), antEnergies.end(), 0);
     return (double)energyTotal / world.score;
 }
 
-int Analysis::incompletes(){
+int Analysis::incompletes(){ // BUG: if an incomplete return ends on a tile which started with food it wont be counted
     int count = 0;
     for (int i = 0; i < world.foodMap.size(); i++){
         for (int j = 0; j < world.foodMap[0].size(); j++){
@@ -106,10 +109,5 @@ int Analysis::incompletes(){
     }
     return count;
 }
-
-
-
-//Tests --------------------------------------
-
 
 

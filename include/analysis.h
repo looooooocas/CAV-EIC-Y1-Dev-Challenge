@@ -7,9 +7,9 @@ class Analysis{
 public:
     Analysis(const AntWorld &world);
 
-    double greedyOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist);
+    double greedyOptimum(std::vector<int> antEnergies);
 
-    double naiveOptimum(std::vector<int> antEnergies, std::vector<int> foodAtDist);
+    double naiveOptimum(std::vector<int> antEnergies);
 
     double results();
     
