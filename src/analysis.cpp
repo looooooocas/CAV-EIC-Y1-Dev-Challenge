@@ -42,7 +42,7 @@ std::vector<int> Analysis::getFoodDists(const AntWorld &world){
     return foodAtDist;
 }
 
-double Analysis::greedyOptimum(std::vector<int> antEnergies){
+double Analysis::greedyOptimum(std::vector<int> antEnergies){ // TODO: rewrite so it flows more naturally 
     /*
     count sort round trip distances to each food source
     iterate through that list and subtract distances while incrementing food collected until we run out of energy
@@ -52,24 +52,30 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies){
     std::vector<int> foodAtDist = getFoodDists(world);
     int optimal = 0;
     for (int dist = 0; dist < foodAtDist.size(); dist++ ){
-        while(foodAtDist[dist] > 0){
+        while(foodAtDist[dist] > 0 && antEnergies.size() > 0 ){
             // find first suitable ant
             for (int a = 0; a < antEnergies.size(); a++){
                 if (antEnergies[a] >= dist*2){
                     antEnergies[a] -= dist*2;
                     optimal++;
                     foodAtDist[dist]--;
-                    break;
+                    goto loop; // exits for loop
                 }
-            } // only exits if no single ant can make the trip
-            if (!antEnergies.empty()){
+            }
+            // if no ant can make the round trip, drop the food where the most energetic ant runs out of energy
+            if (antEnergies.size() > 0 && dist < antEnergies.back()){
                 foodAtDist[dist] -= 1;
-                foodAtDist[dist - antEnergies.back()] += 1;
+                foodAtDist[dist - (antEnergies.back() - dist)] += 1;
                 antEnergies.pop_back();
             }
+            else {
+                goto finish;
+            }
+            loop: 
             std::sort(antEnergies.begin(), antEnergies.end()); // re-sort for next iteration
         }
     }
+    finish:
     return (double)optimal / totalFood;
 }
 
