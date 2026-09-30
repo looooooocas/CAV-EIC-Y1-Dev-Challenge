@@ -50,4 +50,23 @@ if (BUILD_TESTING)
             NAME antworld_framework_tests
             COMMAND antworld_tests
     )
+
+    # --- analysis tests ---
+    add_executable(analysis_tests
+            test/analysis_tests.cpp
+            src/analysis.cpp
+            src/applicant_solution.cpp
+            ${FRAMEWORK_SOURCES}
+    )
+    target_include_directories(analysis_tests PRIVATE
+            ${CMAKE_CURRENT_SOURCE_DIR}/include
+    )
+    if (MSVC)
+        target_compile_options(analysis_tests PRIVATE /W4)
+    else ()
+        target_compile_options(analysis_tests PRIVATE -Wall -Wextra -Wpedantic)
+    endif ()
+    add_test(NAME analysis_tests COMMAND analysis_tests)
+
+    # end analysis tests
 endif ()

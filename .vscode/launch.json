@@ -5,12 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Debug main (dev_challenge)",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceRoot}/build/dev_challenge",
+            "program": "${workspaceFolder}/build/dev_challenge",
             "args": [],
-            "cwd": "${workspaceRoot}"
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "Debug analysis_tests",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/analysis_tests",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
         }
     ]
 }

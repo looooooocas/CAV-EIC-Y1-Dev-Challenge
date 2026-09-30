@@ -28,6 +28,7 @@
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/ContinuousMemCheck.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/ContinuousSubmit.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir
+/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/test.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/edit_cache.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/rebuild_cache.dir

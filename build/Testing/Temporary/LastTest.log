@@ -1,0 +1,59 @@
+Start testing: Sep 24 14:01 EDT
+----------------------------------------------------------
+1/2 Testing: antworld_framework_tests
+1/2 Test: antworld_framework_tests
+Command: "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/antworld_tests"
+Directory: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
+"antworld_framework_tests" start time: Sep 24 14:01 EDT
+Output:
+----------------------------------------------------------
+20
+23
+21
+17
+20
+23
+21
+17
+18
+15
+27
+22
+illegal move: attempted to move to 9, 9 in 1, 4 grid space6
+3
+Ant 0: 0
+All 40 checks passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"antworld_framework_tests" end time: Sep 24 14:01 EDT
+"antworld_framework_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: analysis_tests
+2/2 Test: analysis_tests
+Command: "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/analysis_tests"
+Directory: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
+"analysis_tests" start time: Sep 24 14:01 EDT
+Output:
+----------------------------------------------------------
+8
+8
+8
+8
+7
+9
+7
+5
+8
+8
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"analysis_tests" end time: Sep 24 14:01 EDT
+"analysis_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 24 14:01 EDT
