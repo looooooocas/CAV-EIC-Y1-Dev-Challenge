@@ -35,4 +35,7 @@ bool sortByDistance(Coord a, Coord b, Coord referencePoint, AntWorld& world);
 bool roundTrip(Ant& ant, Coord dest, AntWorld& world);
 Coord safeMove(Ant& ant, Coord dest, AntWorld& world);
 
+// Unit testing
+void territoryTests();
+
 #endif // DEV_CHALLENGE_UTILITY_H

@@ -243,6 +243,9 @@ int main() {
     testSteepTerrainSafety();
     testFullSimulationBenchmark();
 
+    tests();
+    check(testSimpleSearchTransitions(), "SimpleAnt State Machine Transitions");
+
     std::cout << "\n========================================\n";
     std::cout << "Simple Search Test Results: " << checks << " checks, "
               << failures << " failures.\n";

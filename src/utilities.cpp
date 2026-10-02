@@ -3,6 +3,8 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <iostream>
+#include <cassert>
 #include "utilities.h"
 
 
@@ -278,4 +280,132 @@ Coord Territory::startHeading(int foodRadius) {
     }
 
     return heading;
+}
+
+
+// ============================================================================
+// Territory Edge-Case Unit Tests
+// ============================================================================
+
+namespace {
+
+// 1. Single scout covers full 2*PI circle and all map corners
+static bool testSingleScoutFullCoverage() {
+    MapTemplate map(10, std::vector<int>(10, 0));
+    Coord home(5, 5);
+    Territory t(home, 0, 1, map);
+
+    assert(t.start == 0.0);
+    assert(std::abs(t.end - 2.0 * PI) < 1e-6);
+
+    assert(t.within(Coord(0, 0)));
+    assert(t.within(Coord(0, 9)));
+    assert(t.within(Coord(9, 0)));
+    assert(t.within(Coord(9, 9)));
+
+    Coord sp = t.startPoint(2);
+    assert(sp != home);
+    assert(t.within(sp));
+
+    Coord h = t.startHeading(2);
+    assert(h != Coord(0, 0));
+    Coord next = sp + h;
+    assert(next.first >= 0 && next.first < 10 && next.second >= 0 && next.second < 10);
+    return true;
+}
+
+// 2. Corner home (0, 0) angles strictly in [0, PI/2] and non-negative
+static bool testCornerHomeBoundaryAngles() {
+    MapTemplate map(10, std::vector<int>(10, 0));
+    Coord home(0, 0);
+    Territory t(home, 0, 1, map);
+
+    assert(std::abs(t.angle(Coord(5, 0)) - 0.0) < 1e-6);        // South (+row) is angle 0
+    assert(std::abs(t.angle(Coord(0, 5)) - (PI / 2.0)) < 1e-6); // East (+col) is angle PI/2
+    assert(std::abs(t.angle(Coord(5, 5)) - (PI / 4.0)) < 1e-6); // Diagonal is angle PI/4
+
+    double a = t.angle(Coord(8, 3));
+    assert(a >= 0.0 && a <= PI / 2.0);
+
+    Coord sp = t.startPoint(2);
+    assert(sp != home);
+    assert(sp.first >= 0 && sp.first < 10 && sp.second >= 0 && sp.second < 10);
+
+    Coord h = t.startHeading(2);
+    assert(h != Coord(0, 0));
+    return true;
+}
+
+// 3. Map boundary reflection reverses heading and stays inside bounds
+static bool testNextVantageBoundaryBounce() {
+    MapTemplate map(10, std::vector<int>(10, 0));
+    Coord home(0, 0);
+    Territory t(home, 0, 1, map);
+
+    Coord heading(0, 2);
+    Coord vantage(0, 8); // Straight step to (0, 10) is out of bounds
+    Coord next = t.nextVantage(vantage, heading);
+
+    assert(heading.second < 0); // Heading was reversed
+    assert(next.first >= 0 && next.first < 10);
+    assert(next.second >= 0 && next.second < 10);
+    assert(next != vantage);
+    return true;
+}
+
+// 4. Extreme corner recovery safely resets or reflects without infinite loop
+static bool testNextVantageCornerTrappedReset() {
+    MapTemplate map(10, std::vector<int>(10, 0));
+    Coord home(0, 0);
+    Territory t(home, 0, 1, map);
+
+    Coord heading(2, 2);
+    Coord vantage(9, 9); // Furthest corner
+    Coord next = t.nextVantage(vantage, heading);
+
+    assert(next.first >= 0 && next.first < 10);
+    assert(next.second >= 0 && next.second < 10);
+    assert(heading != Coord(0, 0));
+    return true;
+}
+
+// 5. Tiny 2x2 grid with oversized foodRadius clamps safely
+static bool testTinyMapEdgeCase() {
+    MapTemplate map(2, std::vector<int>(2, 0));
+    Coord home(0, 0);
+    Territory t(home, 0, 1, map);
+
+    Coord sp = t.startPoint(3);
+    assert(sp.first >= 0 && sp.first < 2);
+    assert(sp.second >= 0 && sp.second < 2);
+    assert(sp != home);
+
+    Coord h = t.startHeading(3);
+    assert(h != Coord(0, 0));
+    Coord next = sp + h;
+    assert(next.first >= 0 && next.first < 2);
+    assert(next.second >= 0 && next.second < 2);
+    return true;
+}
+
+} // namespace
+
+void territoryTests() {
+    std::cout << "\n--- Running Territory Edge-Case Unit Tests ---\n";
+    assert(testSingleScoutFullCoverage());
+    std::cout << "  PASS: Single scout full map coverage [0, 2*PI)\n";
+
+    assert(testCornerHomeBoundaryAngles());
+    std::cout << "  PASS: Corner home angles and normalization in [0, 2*PI)\n";
+
+    assert(testNextVantageBoundaryBounce());
+    std::cout << "  PASS: Map boundary reflection and heading reversal\n";
+
+    assert(testNextVantageCornerTrappedReset());
+    std::cout << "  PASS: Corner boundary recovery and patrol cycle\n";
+
+    assert(testTinyMapEdgeCase());
+    std::cout << "  PASS: Tiny grid bounds clamping with large foodRadius\n";
+
+    std::cout << "All Territory edge-case tests PASSED!\n\n";
 }

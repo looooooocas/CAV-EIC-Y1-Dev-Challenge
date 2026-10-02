@@ -9,4 +9,7 @@ void simpleSearch(AntWorld& world);
 void simpleSearch(Ant& ant, AntWorld& world);
 void resetSimpleSearch();
 
+void tests();
+bool testSimpleSearchTransitions();
+
 #endif // SIMPLE_SEARCH_H
