@@ -11,9 +11,14 @@ set(FRAMEWORK_SOURCES
         src/useable_functions.cpp
 )
 
+# Included all source files required for the applicant's logic
+set(APPLICANT_SOURCES
+        src/applicant_solution.cpp
+)
+
 add_executable(dev_challenge
         src/main.cpp
-        src/applicant_solution.cpp
+        ${APPLICANT_SOURCES}
         ${FRAMEWORK_SOURCES}
 )
 
@@ -32,7 +37,7 @@ include(CTest)
 if (BUILD_TESTING)
     add_executable(antworld_tests
             test/antworld_tests.cpp
-            src/applicant_solution.cpp
+            ${APPLICANT_SOURCES}
             ${FRAMEWORK_SOURCES}
     )
 
@@ -47,26 +52,7 @@ if (BUILD_TESTING)
     endif ()
 
     add_test(
-            NAME antworld_framework_tests
+            NAME antworld_tests
             COMMAND antworld_tests
     )
-
-    # --- analysis tests ---
-    add_executable(analysis_tests
-            test/analysis_tests.cpp
-            src/analysis.cpp
-            src/applicant_solution.cpp
-            ${FRAMEWORK_SOURCES}
-    )
-    target_include_directories(analysis_tests PRIVATE
-            ${CMAKE_CURRENT_SOURCE_DIR}/include
-    )
-    if (MSVC)
-        target_compile_options(analysis_tests PRIVATE /W4)
-    else ()
-        target_compile_options(analysis_tests PRIVATE -Wall -Wextra -Wpedantic)
-    endif ()
-    add_test(NAME analysis_tests COMMAND analysis_tests)
-
-    # end analysis tests
 endif ()

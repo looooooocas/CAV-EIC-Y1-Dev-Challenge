@@ -336,79 +336,6 @@ build antworld_tests: CXX_EXECUTABLE_LINKER__antworld_tests_Debug CMakeFiles/ant
   TARGET_PDB = antworld_tests.dbg
   TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
 
-# =============================================================================
-# Object build statements for EXECUTABLE target analysis_tests
-
-
-#############################################
-# Order-only phony target for analysis_tests
-
-build cmake_object_order_depends_target_analysis_tests: phony || .
-
-build CMakeFiles/analysis_tests.dir/test/analysis_tests.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/analysis_tests.cpp || cmake_object_order_depends_target_analysis_tests
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles/analysis_tests.dir/test/analysis_tests.cpp.o.d
-  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
-  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
-  OBJECT_DIR = CMakeFiles/analysis_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/test
-  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
-
-build CMakeFiles/analysis_tests.dir/src/analysis.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_analysis_tests
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles/analysis_tests.dir/src/analysis.cpp.o.d
-  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
-  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
-  OBJECT_DIR = CMakeFiles/analysis_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
-  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
-
-build CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_analysis_tests
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o.d
-  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
-  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
-  OBJECT_DIR = CMakeFiles/analysis_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
-  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
-
-build CMakeFiles/analysis_tests.dir/src/antworld.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_analysis_tests
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles/analysis_tests.dir/src/antworld.cpp.o.d
-  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
-  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
-  OBJECT_DIR = CMakeFiles/analysis_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
-  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
-
-build CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp || cmake_object_order_depends_target_analysis_tests
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o.d
-  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
-  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
-  OBJECT_DIR = CMakeFiles/analysis_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
-  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target analysis_tests
-
-
-#############################################
-# Link the executable analysis_tests
-
-build analysis_tests: CXX_EXECUTABLE_LINKER__analysis_tests_Debug CMakeFiles/analysis_tests.dir/test/analysis_tests.cpp.o CMakeFiles/analysis_tests.dir/src/analysis.cpp.o CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o CMakeFiles/analysis_tests.dir/src/antworld.cpp.o CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o
-  CONFIG = Debug
-  FLAGS = -g -arch arm64
-  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
-  OBJECT_DIR = CMakeFiles/analysis_tests.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = analysis_tests
-  TARGET_PDB = analysis_tests.dbg
-  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
-
 
 #############################################
 # Utility command for test
@@ -680,7 +607,7 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 #############################################
 # Folder: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
 
-build all: phony dev_challenge antworld_tests analysis_tests
+build all: phony dev_challenge antworld_tests
 
 # =============================================================================
 # Built-in targets

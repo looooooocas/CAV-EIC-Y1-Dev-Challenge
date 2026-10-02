@@ -1,4 +1,6 @@
-antworld_framework_tests 8 0.00042474
-analysis_tests 0 0
+antworld_framework_tests 44 0.00802508
+analysis_tests 34 0.00618099
+territory_tests 36 0.00597013
+simple_search_tests 30 0.0155217
+antworld_tests 1 0.216621
 ---
-analysis_tests
