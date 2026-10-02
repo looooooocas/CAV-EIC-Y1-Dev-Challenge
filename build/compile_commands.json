@@ -13,6 +13,30 @@
 },
 {
   "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/dev_challenge.dir/src/analysis.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/src/analysis.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/dev_challenge.dir/src/utilities.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/src/utilities.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/dev_challenge.dir/src/signalSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/src/signalSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/dev_challenge.dir/src/simpleSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/src/simpleSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
   "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/dev_challenge.dir/src/antworld.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
   "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
   "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/dev_challenge.dir/src/antworld.cpp.o"
@@ -37,6 +61,30 @@
 },
 {
   "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/antworld_tests.dir/src/analysis.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir/src/analysis.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/antworld_tests.dir/src/utilities.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir/src/utilities.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/antworld_tests.dir/src/signalSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir/src/signalSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/antworld_tests.dir/src/simpleSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir/src/simpleSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
   "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/antworld_tests.dir/src/antworld.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
   "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
   "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir/src/antworld.cpp.o"
@@ -55,15 +103,33 @@
 },
 {
   "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
   "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/analysis.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
   "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
   "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/analysis.cpp.o"
 },
 {
   "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
-  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
-  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
-  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o"
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/utilities.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/utilities.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/signalSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/signalSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/simpleSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/simpleSearch.cpp.o"
 },
 {
   "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
@@ -76,5 +142,149 @@
   "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
   "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
   "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/test/simple_search_tests.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/simple_search_tests.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/simple_search_tests.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/test/simple_search_tests.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/applicant_solution.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/applicant_solution.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/analysis.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/analysis.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/utilities.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/utilities.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/signalSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/signalSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/simpleSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/simpleSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/antworld.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/antworld.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/simple_search_tests.dir/src/useable_functions.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir/src/useable_functions.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/test/territory_tests.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/territory_tests.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/territory_tests.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/test/territory_tests.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/applicant_solution.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/applicant_solution.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/analysis.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/analysis.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/utilities.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/utilities.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/signalSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/signalSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/simpleSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/simpleSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/antworld.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/antworld.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/territory_tests.dir/src/useable_functions.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir/src/useable_functions.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/test/compare_searches.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/compare_searches.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/compare_searches.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/test/compare_searches.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/applicant_solution.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/applicant_solution.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/analysis.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/analysis.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/utilities.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/utilities.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/signalSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/signalSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/simpleSearch.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/simpleSearch.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/antworld.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/antworld.cpp.o"
+},
+{
+  "directory": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build",
+  "command": "/usr/bin/clang++ -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_searches.dir/src/useable_functions.cpp.o -c /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
+  "file": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp",
+  "output": "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir/src/useable_functions.cpp.o"
 }
 ]

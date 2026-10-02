@@ -29,6 +29,9 @@
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/ContinuousSubmit.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/antworld_tests.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/analysis_tests.dir
+/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/simple_search_tests.dir
+/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/territory_tests.dir
+/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/compare_searches.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/test.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/edit_cache.dir
 /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/CMakeFiles/rebuild_cache.dir

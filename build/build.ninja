@@ -67,6 +67,42 @@ build CMakeFiles/dev_challenge.dir/src/applicant_solution.cpp.o: CXX_COMPILER__d
   OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
 
+build CMakeFiles/dev_challenge.dir/src/analysis.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_dev_challenge
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/analysis.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/dev_challenge.dir
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
+build CMakeFiles/dev_challenge.dir/src/utilities.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp || cmake_object_order_depends_target_dev_challenge
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/utilities.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/dev_challenge.dir
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
+build CMakeFiles/dev_challenge.dir/src/signalSearch.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp || cmake_object_order_depends_target_dev_challenge
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/signalSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/dev_challenge.dir
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
+build CMakeFiles/dev_challenge.dir/src/simpleSearch.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp || cmake_object_order_depends_target_dev_challenge
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/dev_challenge.dir/src/simpleSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/dev_challenge.dir
+  OBJECT_FILE_DIR = CMakeFiles/dev_challenge.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/dev_challenge.dir
+
 build CMakeFiles/dev_challenge.dir/src/antworld.cpp.o: CXX_COMPILER__dev_challenge_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_dev_challenge
   CONFIG = Debug
   DEP_FILE = CMakeFiles/dev_challenge.dir/src/antworld.cpp.o.d
@@ -93,7 +129,7 @@ build CMakeFiles/dev_challenge.dir/src/useable_functions.cpp.o: CXX_COMPILER__de
 #############################################
 # Link the executable dev_challenge
 
-build dev_challenge: CXX_EXECUTABLE_LINKER__dev_challenge_Debug CMakeFiles/dev_challenge.dir/src/main.cpp.o CMakeFiles/dev_challenge.dir/src/applicant_solution.cpp.o CMakeFiles/dev_challenge.dir/src/antworld.cpp.o CMakeFiles/dev_challenge.dir/src/useable_functions.cpp.o
+build dev_challenge: CXX_EXECUTABLE_LINKER__dev_challenge_Debug CMakeFiles/dev_challenge.dir/src/main.cpp.o CMakeFiles/dev_challenge.dir/src/applicant_solution.cpp.o CMakeFiles/dev_challenge.dir/src/analysis.cpp.o CMakeFiles/dev_challenge.dir/src/utilities.cpp.o CMakeFiles/dev_challenge.dir/src/signalSearch.cpp.o CMakeFiles/dev_challenge.dir/src/simpleSearch.cpp.o CMakeFiles/dev_challenge.dir/src/antworld.cpp.o CMakeFiles/dev_challenge.dir/src/useable_functions.cpp.o
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
@@ -299,6 +335,42 @@ build CMakeFiles/antworld_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__
   OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
 
+build CMakeFiles/antworld_tests.dir/src/analysis.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/analysis.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+build CMakeFiles/antworld_tests.dir/src/utilities.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/utilities.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+build CMakeFiles/antworld_tests.dir/src/signalSearch.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/signalSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
+build CMakeFiles/antworld_tests.dir/src/simpleSearch.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp || cmake_object_order_depends_target_antworld_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/antworld_tests.dir/src/simpleSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/antworld_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/antworld_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/antworld_tests.dir
+
 build CMakeFiles/antworld_tests.dir/src/antworld.cpp.o: CXX_COMPILER__antworld_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_antworld_tests
   CONFIG = Debug
   DEP_FILE = CMakeFiles/antworld_tests.dir/src/antworld.cpp.o.d
@@ -325,7 +397,7 @@ build CMakeFiles/antworld_tests.dir/src/useable_functions.cpp.o: CXX_COMPILER__a
 #############################################
 # Link the executable antworld_tests
 
-build antworld_tests: CXX_EXECUTABLE_LINKER__antworld_tests_Debug CMakeFiles/antworld_tests.dir/test/antworld_tests.cpp.o CMakeFiles/antworld_tests.dir/src/applicant_solution.cpp.o CMakeFiles/antworld_tests.dir/src/antworld.cpp.o CMakeFiles/antworld_tests.dir/src/useable_functions.cpp.o
+build antworld_tests: CXX_EXECUTABLE_LINKER__antworld_tests_Debug CMakeFiles/antworld_tests.dir/test/antworld_tests.cpp.o CMakeFiles/antworld_tests.dir/src/applicant_solution.cpp.o CMakeFiles/antworld_tests.dir/src/analysis.cpp.o CMakeFiles/antworld_tests.dir/src/utilities.cpp.o CMakeFiles/antworld_tests.dir/src/signalSearch.cpp.o CMakeFiles/antworld_tests.dir/src/simpleSearch.cpp.o CMakeFiles/antworld_tests.dir/src/antworld.cpp.o CMakeFiles/antworld_tests.dir/src/useable_functions.cpp.o
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
@@ -354,6 +426,15 @@ build CMakeFiles/analysis_tests.dir/test/analysis_tests.cpp.o: CXX_COMPILER__ana
   OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/test
   TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
 
+build CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_analysis_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/analysis_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
+
 build CMakeFiles/analysis_tests.dir/src/analysis.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_analysis_tests
   CONFIG = Debug
   DEP_FILE = CMakeFiles/analysis_tests.dir/src/analysis.cpp.o.d
@@ -363,9 +444,27 @@ build CMakeFiles/analysis_tests.dir/src/analysis.cpp.o: CXX_COMPILER__analysis_t
   OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
 
-build CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_analysis_tests
+build CMakeFiles/analysis_tests.dir/src/utilities.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp || cmake_object_order_depends_target_analysis_tests
   CONFIG = Debug
-  DEP_FILE = CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o.d
+  DEP_FILE = CMakeFiles/analysis_tests.dir/src/utilities.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/analysis_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
+
+build CMakeFiles/analysis_tests.dir/src/signalSearch.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp || cmake_object_order_depends_target_analysis_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/analysis_tests.dir/src/signalSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/analysis_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/analysis_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
+
+build CMakeFiles/analysis_tests.dir/src/simpleSearch.cpp.o: CXX_COMPILER__analysis_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp || cmake_object_order_depends_target_analysis_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/analysis_tests.dir/src/simpleSearch.cpp.o.d
   FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
   INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
   OBJECT_DIR = CMakeFiles/analysis_tests.dir
@@ -398,7 +497,7 @@ build CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o: CXX_COMPILER__a
 #############################################
 # Link the executable analysis_tests
 
-build analysis_tests: CXX_EXECUTABLE_LINKER__analysis_tests_Debug CMakeFiles/analysis_tests.dir/test/analysis_tests.cpp.o CMakeFiles/analysis_tests.dir/src/analysis.cpp.o CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o CMakeFiles/analysis_tests.dir/src/antworld.cpp.o CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o
+build analysis_tests: CXX_EXECUTABLE_LINKER__analysis_tests_Debug CMakeFiles/analysis_tests.dir/test/analysis_tests.cpp.o CMakeFiles/analysis_tests.dir/src/applicant_solution.cpp.o CMakeFiles/analysis_tests.dir/src/analysis.cpp.o CMakeFiles/analysis_tests.dir/src/utilities.cpp.o CMakeFiles/analysis_tests.dir/src/signalSearch.cpp.o CMakeFiles/analysis_tests.dir/src/simpleSearch.cpp.o CMakeFiles/analysis_tests.dir/src/antworld.cpp.o CMakeFiles/analysis_tests.dir/src/useable_functions.cpp.o
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
@@ -408,6 +507,306 @@ build analysis_tests: CXX_EXECUTABLE_LINKER__analysis_tests_Debug CMakeFiles/ana
   TARGET_FILE = analysis_tests
   TARGET_PDB = analysis_tests.dbg
   TARGET_SUPPORT_DIR = CMakeFiles/analysis_tests.dir
+
+# =============================================================================
+# Object build statements for EXECUTABLE target simple_search_tests
+
+
+#############################################
+# Order-only phony target for simple_search_tests
+
+build cmake_object_order_depends_target_simple_search_tests: phony || .
+
+build CMakeFiles/simple_search_tests.dir/test/simple_search_tests.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/simple_search_tests.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/test/simple_search_tests.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/test
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/applicant_solution.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/analysis.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/analysis.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/utilities.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/utilities.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/signalSearch.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/signalSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/simpleSearch.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/simpleSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/antworld.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/antworld.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+build CMakeFiles/simple_search_tests.dir/src/useable_functions.cpp.o: CXX_COMPILER__simple_search_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp || cmake_object_order_depends_target_simple_search_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/simple_search_tests.dir/src/useable_functions.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_search_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target simple_search_tests
+
+
+#############################################
+# Link the executable simple_search_tests
+
+build simple_search_tests: CXX_EXECUTABLE_LINKER__simple_search_tests_Debug CMakeFiles/simple_search_tests.dir/test/simple_search_tests.cpp.o CMakeFiles/simple_search_tests.dir/src/applicant_solution.cpp.o CMakeFiles/simple_search_tests.dir/src/analysis.cpp.o CMakeFiles/simple_search_tests.dir/src/utilities.cpp.o CMakeFiles/simple_search_tests.dir/src/signalSearch.cpp.o CMakeFiles/simple_search_tests.dir/src/simpleSearch.cpp.o CMakeFiles/simple_search_tests.dir/src/antworld.cpp.o CMakeFiles/simple_search_tests.dir/src/useable_functions.cpp.o
+  CONFIG = Debug
+  FLAGS = -g -arch arm64
+  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  OBJECT_DIR = CMakeFiles/simple_search_tests.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = simple_search_tests
+  TARGET_PDB = simple_search_tests.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles/simple_search_tests.dir
+
+# =============================================================================
+# Object build statements for EXECUTABLE target territory_tests
+
+
+#############################################
+# Order-only phony target for territory_tests
+
+build cmake_object_order_depends_target_territory_tests: phony || .
+
+build CMakeFiles/territory_tests.dir/test/territory_tests.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/territory_tests.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/test/territory_tests.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/test
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/applicant_solution.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/applicant_solution.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/analysis.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/analysis.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/utilities.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/utilities.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/signalSearch.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/signalSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/simpleSearch.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/simpleSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/antworld.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/antworld.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+build CMakeFiles/territory_tests.dir/src/useable_functions.cpp.o: CXX_COMPILER__territory_tests_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp || cmake_object_order_depends_target_territory_tests
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/territory_tests.dir/src/useable_functions.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/territory_tests.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target territory_tests
+
+
+#############################################
+# Link the executable territory_tests
+
+build territory_tests: CXX_EXECUTABLE_LINKER__territory_tests_Debug CMakeFiles/territory_tests.dir/test/territory_tests.cpp.o CMakeFiles/territory_tests.dir/src/applicant_solution.cpp.o CMakeFiles/territory_tests.dir/src/analysis.cpp.o CMakeFiles/territory_tests.dir/src/utilities.cpp.o CMakeFiles/territory_tests.dir/src/signalSearch.cpp.o CMakeFiles/territory_tests.dir/src/simpleSearch.cpp.o CMakeFiles/territory_tests.dir/src/antworld.cpp.o CMakeFiles/territory_tests.dir/src/useable_functions.cpp.o
+  CONFIG = Debug
+  FLAGS = -g -arch arm64
+  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  OBJECT_DIR = CMakeFiles/territory_tests.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = territory_tests
+  TARGET_PDB = territory_tests.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles/territory_tests.dir
+
+# =============================================================================
+# Object build statements for EXECUTABLE target compare_searches
+
+
+#############################################
+# Order-only phony target for compare_searches
+
+build cmake_object_order_depends_target_compare_searches: phony || .
+
+build CMakeFiles/compare_searches.dir/test/compare_searches.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/test/compare_searches.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/test/compare_searches.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/test
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/applicant_solution.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/applicant_solution.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/applicant_solution.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/analysis.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/analysis.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/analysis.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/utilities.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/utilities.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/utilities.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/signalSearch.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/signalSearch.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/signalSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/simpleSearch.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/simpleSearch.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/simpleSearch.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/antworld.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/antworld.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/antworld.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+build CMakeFiles/compare_searches.dir/src/useable_functions.cpp.o: CXX_COMPILER__compare_searches_unscanned_Debug /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/src/useable_functions.cpp || cmake_object_order_depends_target_compare_searches
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/compare_searches.dir/src/useable_functions.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/include
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  OBJECT_FILE_DIR = CMakeFiles/compare_searches.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target compare_searches
+
+
+#############################################
+# Link the executable compare_searches
+
+build compare_searches: CXX_EXECUTABLE_LINKER__compare_searches_Debug CMakeFiles/compare_searches.dir/test/compare_searches.cpp.o CMakeFiles/compare_searches.dir/src/applicant_solution.cpp.o CMakeFiles/compare_searches.dir/src/analysis.cpp.o CMakeFiles/compare_searches.dir/src/utilities.cpp.o CMakeFiles/compare_searches.dir/src/signalSearch.cpp.o CMakeFiles/compare_searches.dir/src/simpleSearch.cpp.o CMakeFiles/compare_searches.dir/src/antworld.cpp.o CMakeFiles/compare_searches.dir/src/useable_functions.cpp.o
+  CONFIG = Debug
+  FLAGS = -g -arch arm64
+  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  OBJECT_DIR = CMakeFiles/compare_searches.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = compare_searches
+  TARGET_PDB = compare_searches.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles/compare_searches.dir
 
 
 #############################################
@@ -680,7 +1079,7 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 #############################################
 # Folder: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
 
-build all: phony dev_challenge antworld_tests analysis_tests
+build all: phony dev_challenge antworld_tests analysis_tests simple_search_tests territory_tests compare_searches
 
 # =============================================================================
 # Built-in targets

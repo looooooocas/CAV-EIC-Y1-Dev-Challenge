@@ -1,10 +1,10 @@
-Start testing: Sep 24 14:01 EDT
+Start testing: Oct 02 15:16 EDT
 ----------------------------------------------------------
-1/2 Testing: antworld_framework_tests
-1/2 Test: antworld_framework_tests
+1/4 Testing: antworld_framework_tests
+1/4 Test: antworld_framework_tests
 Command: "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/antworld_tests"
 Directory: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
-"antworld_framework_tests" start time: Sep 24 14:01 EDT
+"antworld_framework_tests" start time: Oct 02 15:16 EDT
 Output:
 ----------------------------------------------------------
 20
@@ -21,21 +21,26 @@ Output:
 22
 illegal move: attempted to move to 9, 9 in 1, 4 grid space6
 3
-Ant 0: 0
+[2J[H+----+
+|* H |
+|    |
+|    |
+|    |
++----+
 All 40 checks passed.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.36 sec
 ----------------------------------------------------------
 Test Passed.
-"antworld_framework_tests" end time: Sep 24 14:01 EDT
+"antworld_framework_tests" end time: Oct 02 15:16 EDT
 "antworld_framework_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/2 Testing: analysis_tests
-2/2 Test: analysis_tests
+2/4 Testing: analysis_tests
+2/4 Test: analysis_tests
 Command: "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/analysis_tests"
 Directory: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
-"analysis_tests" start time: Sep 24 14:01 EDT
+"analysis_tests" start time: Oct 02 15:16 EDT
 Output:
 ----------------------------------------------------------
 8
@@ -46,14 +51,871 @@ Output:
 9
 7
 5
+39
+30
+39
+30
+8
+39
+30
+39
+30
+33
+39
+30
+39
+30
 8
 8
+8
+8
+8
+8
+
+========================================
+Analysis Test Results: 43 checks, 0 failures.
+========================================
 <end of output>
-Test time =   0.02 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
-Test Failed.
-"analysis_tests" end time: Sep 24 14:01 EDT
+Test Passed.
+"analysis_tests" end time: Oct 02 15:16 EDT
 "analysis_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 24 14:01 EDT
+3/4 Testing: simple_search_tests
+3/4 Test: simple_search_tests
+Command: "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/simple_search_tests"
+Directory: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
+"simple_search_tests" start time: Oct 02 15:16 EDT
+Output:
+----------------------------------------------------------
+========================================
+        RUNNING SIMPLE SEARCH TESTS     
+========================================
+
+--- Test 1: Territory Assignment & Sector Exploration ---
+87
+54
+89
+58
+  PASS: Ant 0 moved away from home towards its territory
+  PASS: Ant 1 moved away from home towards its territory
+  PASS: Ant 2 moved away from home towards its territory
+  PASS: Ant 3 moved away from home towards its territory
+  PASS: All 4 ants moved toward distinct territory start points
+
+--- Test 2: Closest Food Selection Priority ---
+39
+  PASS: Closer food at (0, 1) was grabbed
+  PASS: Further food at (0, 3) was left for next trip
+  PASS: Ant returned home with closer food
+  PASS: Ant arrived home carrying the food
+
+--- Test 3: Strict Timing (Grab -> Deliver -> Score -> Wait -> Return) ---
+39
+  PASS: Delivery Step: Ant reached home with food
+  PASS: T: Food scored by updateWorld
+  PASS: T: carryingFood reset to false after scoring
+  PASS: T: Ant currently at home base
+  PASS: T+1: Ant waited turn at home for scoring cycle
+  PASS: T+2: Ant departed home back towards stored position (now at: (5, 2))
+
+--- Test 4: Consecutive Harvest Trips from Same Location ---
+39
+  PASS: Trip 1: Delivered 1st food item to home
+  PASS: Trip 1: Score incremented to 1
+  PASS: Trip 1: Waited turn at home
+  PASS: Trip 2: Returned to field, grabbed 2nd food, and delivered home
+  PASS: Trip 2: Score incremented to 2
+
+--- Test 5: Steep Terrain Safety & Elevation Handling ---
+8
+  PASS: Ant crossed ridge and returned safely to home
+  PASS: Ant maintained positive energy throughout the mountain trip
+  PASS: Food retrieved over steep ridge successfully scored
+
+--- Test 6: Full Multi-Ant Simulation Benchmark ---
+80
+89
+64
+45
+52
+90
+60
+58
+  PASS: Seed 42: Scored 39 / 90 in 16 steps
+  PASS: Seed 42: 0 food lost in transit
+69
+60
+79
+84
+64
+83
+58
+67
+  PASS: Seed 12345: Scored 36 / 90 in 14 steps
+  PASS: Seed 12345: 0 food lost in transit
+87
+54
+89
+58
+51
+83
+84
+53
+  PASS: Seed 0: Scored 29 / 90 in 13 steps
+  PASS: Seed 0: 0 food lost in transit
+
+--- Running SimpleAnt Edge-Case Unit Tests ---
+39
+  PASS: Food energy feasibility edge case
+39
+  PASS: Explore safety retreat boundary
+39
+  PASS: Explore stuck detection
+39
+  PASS: ReturnToStored energy limit
+39
+  PASS: Death threshold and passivity
+39
+  PASS: State machine pipeline transitions
+All SimpleAnt edge-case tests PASSED!
+
+39
+  PASS: SimpleAnt State Machine Transitions
+
+========================================
+Simple Search Test Results: 30 checks, 0 failures.
+========================================
+<end of output>
+Test time =   0.38 sec
+----------------------------------------------------------
+Test Passed.
+"simple_search_tests" end time: Oct 02 15:16 EDT
+"simple_search_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: territory_tests
+4/4 Test: territory_tests
+Command: "/Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build/territory_tests"
+Directory: /Users/lucascosmo/AntWorld/CAV-EIC-Y1-Dev-Challenge/build
+"territory_tests" start time: Oct 02 15:16 EDT
+Output:
+----------------------------------------------------------
+Running Territory constructor tests...
+Center (7, 7) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Center (7, 7) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 112 cells, angles: [0, 2.9997]
+  Scout 1: 113 cells, angles: [2.9997, 6.28319]
+Center (7, 7) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 75 cells, angles: [0, 2.03444]
+  Scout 1: 77 cells, angles: [2.03444, 4.01765]
+  Scout 2: 76 cells, angles: [4.01765, 6.28319]
+Center (7, 7) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 1.4289]
+  Scout 1: 57 cells, angles: [1.4289, 2.9997]
+  Scout 2: 57 cells, angles: [2.9997, 4.57049]
+  Scout 3: 57 cells, angles: [4.57049, 6.28319]
+Center (7, 7) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 1.05165]
+  Scout 1: 48 cells, angles: [1.05165, 2.35619]
+  Scout 2: 51 cells, angles: [2.35619, 3.7296]
+  Scout 3: 46 cells, angles: [3.7296, 4.95737]
+  Scout 4: 46 cells, angles: [4.95737, 6.28319]
+Center (7, 7) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 37 cells, angles: [0, 0.876058]
+  Scout 1: 39 cells, angles: [0.876058, 2.03444]
+  Scout 2: 40 cells, angles: [2.03444, 2.9997]
+  Scout 3: 38 cells, angles: [2.9997, 4.01765]
+  Scout 4: 39 cells, angles: [4.01765, 5.17604]
+  Scout 5: 40 cells, angles: [5.17604, 6.28319]
+Center (7, 7) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 35 cells, angles: [0, 0.785398]
+  Scout 1: 36 cells, angles: [0.785398, 1.71269]
+  Scout 2: 33 cells, angles: [1.71269, 2.52134]
+  Scout 3: 33 cells, angles: [2.52134, 3.54648]
+  Scout 4: 33 cells, angles: [3.54648, 4.3075]
+  Scout 5: 33 cells, angles: [4.3075, 5.33264]
+  Scout 6: 33 cells, angles: [5.33264, 6.28319]
+Center (7, 7) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 28 cells, angles: [0, 0.708626]
+  Scout 1: 29 cells, angles: [0.708626, 1.4289]
+  Scout 2: 29 cells, angles: [1.4289, 2.27942]
+  Scout 3: 29 cells, angles: [2.27942, 2.9997]
+  Scout 4: 29 cells, angles: [2.9997, 3.85022]
+  Scout 5: 29 cells, angles: [3.85022, 4.57049]
+  Scout 6: 29 cells, angles: [4.57049, 5.42102]
+  Scout 7: 29 cells, angles: [5.42102, 6.28319]
+Top edge (0, 7) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Top edge (0, 7) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 112 cells, angles: [0, 1.4289]
+  Scout 1: 113 cells, angles: [1.4289, 6.28319]
+Top edge (0, 7) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 75 cells, angles: [0, 0.588003]
+  Scout 1: 82 cells, angles: [0.588003, 5.49779]
+  Scout 2: 77 cells, angles: [5.49779, 6.28319]
+Top edge (0, 7) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 0.432408]
+  Scout 1: 57 cells, angles: [0.432408, 1.4289]
+  Scout 2: 57 cells, angles: [1.4289, 5.72459]
+  Scout 3: 57 cells, angles: [5.72459, 6.28319]
+Top edge (0, 7) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 0.321751]
+  Scout 1: 51 cells, angles: [0.321751, 0.785398]
+  Scout 2: 50 cells, angles: [0.785398, 5.0929]
+  Scout 3: 49 cells, angles: [5.0929, 5.81954]
+  Scout 4: 49 cells, angles: [5.81954, 6.28319]
+Top edge (0, 7) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 38 cells, angles: [0, 0.2783]
+  Scout 1: 39 cells, angles: [0.2783, 0.588003]
+  Scout 2: 40 cells, angles: [0.588003, 1.4289]
+  Scout 3: 43 cells, angles: [1.4289, 5.49779]
+  Scout 4: 40 cells, angles: [5.49779, 5.87829]
+  Scout 5: 39 cells, angles: [5.87829, 6.28319]
+Top edge (0, 7) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 32 cells, angles: [0, 0.226799]
+  Scout 1: 33 cells, angles: [0.226799, 0.493941]
+  Scout 2: 33 cells, angles: [0.493941, 0.950547]
+  Scout 3: 33 cells, angles: [0.950547, 4.87754]
+  Scout 4: 34 cells, angles: [4.87754, 5.63968]
+  Scout 5: 33 cells, angles: [5.63968, 5.92441]
+  Scout 6: 33 cells, angles: [5.92441, 6.28319]
+Top edge (0, 7) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 29 cells, angles: [0, 0.197396]
+  Scout 1: 29 cells, angles: [0.197396, 0.432408]
+  Scout 2: 29 cells, angles: [0.432408, 0.71883]
+  Scout 3: 29 cells, angles: [0.71883, 1.4289]
+  Scout 4: 29 cells, angles: [1.4289, 5.25281]
+  Scout 5: 29 cells, angles: [5.25281, 5.72459]
+  Scout 6: 31 cells, angles: [5.72459, 5.96143]
+  Scout 7: 30 cells, angles: [5.96143, 6.28319]
+Bottom edge (14, 7) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Bottom edge (14, 7) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 119 cells, angles: [0, 3.14159]
+  Scout 1: 119 cells, angles: [3.14159, 6.28319]
+Bottom edge (14, 7) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 74 cells, angles: [0, 2.79282]
+  Scout 1: 76 cells, angles: [2.79282, 3.46334]
+  Scout 2: 79 cells, angles: [3.46334, 6.28319]
+Bottom edge (14, 7) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 2.64765]
+  Scout 1: 64 cells, angles: [2.64765, 3.14159]
+  Scout 2: 63 cells, angles: [3.14159, 3.60524]
+  Scout 3: 63 cells, angles: [3.60524, 6.28319]
+Bottom edge (14, 7) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 2.53087]
+  Scout 1: 46 cells, angles: [2.53087, 2.92292]
+  Scout 2: 46 cells, angles: [2.92292, 3.33899]
+  Scout 3: 48 cells, angles: [3.33899, 3.7296]
+  Scout 4: 47 cells, angles: [3.7296, 6.28319]
+Bottom edge (14, 7) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 37 cells, angles: [0, 2.43297]
+  Scout 1: 38 cells, angles: [2.43297, 2.79282]
+  Scout 2: 46 cells, angles: [2.79282, 3.14159]
+  Scout 3: 44 cells, angles: [3.14159, 3.46334]
+  Scout 4: 41 cells, angles: [3.46334, 3.81633]
+  Scout 5: 39 cells, angles: [3.81633, 6.28319]
+Bottom edge (14, 7) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 35 cells, angles: [0, 2.35619]
+  Scout 1: 36 cells, angles: [2.35619, 2.70918]
+  Scout 2: 33 cells, angles: [2.70918, 2.98894]
+  Scout 3: 33 cells, angles: [2.98894, 3.28349]
+  Scout 4: 34 cells, angles: [3.28349, 3.56822]
+  Scout 5: 37 cells, angles: [3.56822, 3.92699]
+  Scout 6: 35 cells, angles: [3.92699, 6.28319]
+Bottom edge (14, 7) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 28 cells, angles: [0, 2.27942]
+  Scout 1: 29 cells, angles: [2.27942, 2.64765]
+  Scout 2: 29 cells, angles: [2.64765, 2.87534]
+  Scout 3: 36 cells, angles: [2.87534, 3.14159]
+  Scout 4: 35 cells, angles: [3.14159, 3.38657]
+  Scout 5: 31 cells, angles: [3.38657, 3.60524]
+  Scout 6: 35 cells, angles: [3.60524, 3.92699]
+  Scout 7: 35 cells, angles: [3.92699, 6.28319]
+Left edge (7, 0) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Left edge (7, 0) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 119 cells, angles: [0, 1.5708]
+  Scout 1: 119 cells, angles: [1.5708, 6.28319]
+Left edge (7, 0) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 74 cells, angles: [0, 1.22203]
+  Scout 1: 76 cells, angles: [1.22203, 1.89255]
+  Scout 2: 79 cells, angles: [1.89255, 6.28319]
+Left edge (7, 0) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 1.07685]
+  Scout 1: 64 cells, angles: [1.07685, 1.5708]
+  Scout 2: 63 cells, angles: [1.5708, 2.03444]
+  Scout 3: 63 cells, angles: [2.03444, 6.28319]
+Left edge (7, 0) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 0.96007]
+  Scout 1: 46 cells, angles: [0.96007, 1.35213]
+  Scout 2: 46 cells, angles: [1.35213, 1.76819]
+  Scout 3: 48 cells, angles: [1.76819, 2.1588]
+  Scout 4: 47 cells, angles: [2.1588, 6.28319]
+Left edge (7, 0) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 37 cells, angles: [0, 0.86217]
+  Scout 1: 38 cells, angles: [0.86217, 1.22203]
+  Scout 2: 46 cells, angles: [1.22203, 1.5708]
+  Scout 3: 44 cells, angles: [1.5708, 1.89255]
+  Scout 4: 41 cells, angles: [1.89255, 2.24554]
+  Scout 5: 39 cells, angles: [2.24554, 6.28319]
+Left edge (7, 0) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 35 cells, angles: [0, 0.785398]
+  Scout 1: 36 cells, angles: [0.785398, 1.13839]
+  Scout 2: 33 cells, angles: [1.13839, 1.41815]
+  Scout 3: 33 cells, angles: [1.41815, 1.71269]
+  Scout 4: 34 cells, angles: [1.71269, 1.99742]
+  Scout 5: 37 cells, angles: [1.99742, 2.35619]
+  Scout 6: 35 cells, angles: [2.35619, 6.28319]
+Left edge (7, 0) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 28 cells, angles: [0, 0.708626]
+  Scout 1: 29 cells, angles: [0.708626, 1.07685]
+  Scout 2: 29 cells, angles: [1.07685, 1.30454]
+  Scout 3: 36 cells, angles: [1.30454, 1.5708]
+  Scout 4: 35 cells, angles: [1.5708, 1.81577]
+  Scout 5: 31 cells, angles: [1.81577, 2.03444]
+  Scout 6: 35 cells, angles: [2.03444, 2.35619]
+  Scout 7: 35 cells, angles: [2.35619, 6.28319]
+Right edge (7, 14) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Right edge (7, 14) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 112 cells, angles: [0, 4.64108]
+  Scout 1: 113 cells, angles: [4.64108, 6.28319]
+Right edge (7, 14) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 75 cells, angles: [0, 4.3075]
+  Scout 1: 77 cells, angles: [4.3075, 4.99069]
+  Scout 2: 76 cells, angles: [4.99069, 6.28319]
+Right edge (7, 14) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 4.15379]
+  Scout 1: 57 cells, angles: [4.15379, 4.64108]
+  Scout 2: 57 cells, angles: [4.64108, 5.1448]
+  Scout 3: 57 cells, angles: [5.1448, 6.28319]
+Right edge (7, 14) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 4.00376]
+  Scout 1: 47 cells, angles: [4.00376, 4.43409]
+  Scout 2: 47 cells, angles: [4.43409, 4.85429]
+  Scout 3: 46 cells, angles: [4.85429, 5.23154]
+  Scout 4: 46 cells, angles: [5.23154, 6.28319]
+Right edge (7, 14) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 42 cells, angles: [0, 3.92699]
+  Scout 1: 40 cells, angles: [3.92699, 4.3075]
+  Scout 2: 39 cells, angles: [4.3075, 4.64108]
+  Scout 3: 39 cells, angles: [4.64108, 4.99069]
+  Scout 4: 39 cells, angles: [4.99069, 5.30039]
+  Scout 5: 40 cells, angles: [5.30039, 6.28319]
+Right edge (7, 14) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 32 cells, angles: [0, 3.78509]
+  Scout 1: 39 cells, angles: [3.78509, 4.24874]
+  Scout 2: 33 cells, angles: [4.24874, 4.49372]
+  Scout 3: 33 cells, angles: [4.49372, 4.78916]
+  Scout 4: 33 cells, angles: [4.78916, 5.07956]
+  Scout 5: 33 cells, angles: [5.07956, 5.37343]
+  Scout 6: 33 cells, angles: [5.37343, 6.28319]
+Right edge (7, 14) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 28 cells, angles: [0, 3.68201]
+  Scout 1: 29 cells, angles: [3.68201, 4.15379]
+  Scout 2: 31 cells, angles: [4.15379, 4.39064]
+  Scout 3: 30 cells, angles: [4.39064, 4.64108]
+  Scout 4: 30 cells, angles: [4.64108, 4.90978]
+  Scout 5: 29 cells, angles: [4.90978, 5.1448]
+  Scout 6: 29 cells, angles: [5.1448, 5.43122]
+  Scout 7: 29 cells, angles: [5.43122, 6.28319]
+Top-Left corner (0, 0) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Top-Left corner (0, 0) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 119 cells, angles: [0, 0.785398]
+  Scout 1: 119 cells, angles: [0.785398, 6.28319]
+Top-Left corner (0, 0) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 74 cells, angles: [0, 0.566729]
+  Scout 1: 76 cells, angles: [0.566729, 0.982794]
+  Scout 2: 79 cells, angles: [0.982794, 6.28319]
+Top-Left corner (0, 0) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 0.432408]
+  Scout 1: 64 cells, angles: [0.432408, 0.785398]
+  Scout 2: 63 cells, angles: [0.785398, 1.10715]
+  Scout 3: 63 cells, angles: [1.10715, 6.28319]
+Top-Left corner (0, 0) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 0.321751]
+  Scout 1: 49 cells, angles: [0.321751, 0.661043]
+  Scout 2: 46 cells, angles: [0.661043, 0.896055]
+  Scout 3: 47 cells, angles: [0.896055, 1.22203]
+  Scout 4: 46 cells, angles: [1.22203, 6.28319]
+Top-Left corner (0, 0) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 38 cells, angles: [0, 0.2783]
+  Scout 1: 38 cells, angles: [0.2783, 0.566729]
+  Scout 2: 46 cells, angles: [0.566729, 0.785398]
+  Scout 3: 44 cells, angles: [0.785398, 0.982794]
+  Scout 4: 41 cells, angles: [0.982794, 1.27934]
+  Scout 5: 39 cells, angles: [1.27934, 6.28319]
+Top-Left corner (0, 0) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 32 cells, angles: [0, 0.226799]
+  Scout 1: 33 cells, angles: [0.226799, 0.493941]
+  Scout 2: 33 cells, angles: [0.493941, 0.702257]
+  Scout 3: 33 cells, angles: [0.702257, 0.86217]
+  Scout 4: 34 cells, angles: [0.86217, 1.07145]
+  Scout 5: 33 cells, angles: [1.07145, 1.32582]
+  Scout 6: 35 cells, angles: [1.32582, 6.28319]
+Top-Left corner (0, 0) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 29 cells, angles: [0, 0.197396]
+  Scout 1: 29 cells, angles: [0.197396, 0.432408]
+  Scout 2: 29 cells, angles: [0.432408, 0.628796]
+  Scout 3: 36 cells, angles: [0.628796, 0.785398]
+  Scout 4: 35 cells, angles: [0.785398, 0.927295]
+  Scout 5: 31 cells, angles: [0.927295, 1.10715]
+  Scout 6: 36 cells, angles: [1.10715, 1.3734]
+  Scout 7: 29 cells, angles: [1.3734, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=1] target ~224 cells/scout:
+  Scout 0: 224 cells, angles: [0, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=2] target ~112 cells/scout:
+  Scout 0: 119 cells, angles: [0, 3.92699]
+  Scout 1: 119 cells, angles: [3.92699, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=3] target ~74 cells/scout:
+  Scout 0: 74 cells, angles: [0, 3.70832]
+  Scout 1: 76 cells, angles: [3.70832, 4.12439]
+  Scout 2: 79 cells, angles: [4.12439, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=4] target ~56 cells/scout:
+  Scout 0: 56 cells, angles: [0, 3.574]
+  Scout 1: 64 cells, angles: [3.574, 3.92699]
+  Scout 2: 63 cells, angles: [3.92699, 4.24874]
+  Scout 3: 63 cells, angles: [4.24874, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=5] target ~44 cells/scout:
+  Scout 0: 44 cells, angles: [0, 3.46334]
+  Scout 1: 49 cells, angles: [3.46334, 3.80264]
+  Scout 2: 46 cells, angles: [3.80264, 4.03765]
+  Scout 3: 47 cells, angles: [4.03765, 4.36362]
+  Scout 4: 46 cells, angles: [4.36362, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=6] target ~37 cells/scout:
+  Scout 0: 38 cells, angles: [0, 3.41989]
+  Scout 1: 38 cells, angles: [3.41989, 3.70832]
+  Scout 2: 46 cells, angles: [3.70832, 3.92699]
+  Scout 3: 44 cells, angles: [3.92699, 4.12439]
+  Scout 4: 41 cells, angles: [4.12439, 4.42093]
+  Scout 5: 39 cells, angles: [4.42093, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=7] target ~32 cells/scout:
+  Scout 0: 32 cells, angles: [0, 3.36839]
+  Scout 1: 33 cells, angles: [3.36839, 3.63553]
+  Scout 2: 33 cells, angles: [3.63553, 3.84385]
+  Scout 3: 33 cells, angles: [3.84385, 4.00376]
+  Scout 4: 34 cells, angles: [4.00376, 4.21304]
+  Scout 5: 33 cells, angles: [4.21304, 4.46741]
+  Scout 6: 35 cells, angles: [4.46741, 6.28319]
+Bottom-Right corner (14, 14) [numScouts=8] target ~28 cells/scout:
+  Scout 0: 29 cells, angles: [0, 3.33899]
+  Scout 1: 29 cells, angles: [3.33899, 3.574]
+  Scout 2: 29 cells, angles: [3.574, 3.77039]
+  Scout 3: 36 cells, angles: [3.77039, 3.92699]
+  Scout 4: 35 cells, angles: [3.92699, 4.06889]
+  Scout 5: 31 cells, angles: [4.06889, 4.24874]
+  Scout 6: 36 cells, angles: [4.24874, 4.51499]
+  Scout 7: 29 cells, angles: [4.51499, 6.28319]
+Running Territory startPoint tests...
+Running Territory startHeading tests...
+
+=== Center (7, 7) ===
+  numScouts=1:
+    Scout 0: startPoint=(11,7), heading=(0,2), next=(11,9)
+  numScouts=2:
+    Scout 0: startPoint=(11,7), heading=(-2,0), next=(9,7)
+    Scout 1: startPoint=(3,7), heading=(2,0), next=(5,7)
+  numScouts=3:
+    Scout 0: startPoint=(11,7), heading=(-2,1), next=(9,8)
+    Scout 1: startPoint=(4,10), heading=(0,-2), next=(4,8)
+    Scout 2: startPoint=(7,3), heading=(1,1), next=(8,4)
+  numScouts=4:
+    Scout 0: startPoint=(11,7), heading=(-1,2), next=(10,9)
+    Scout 1: startPoint=(7,11), heading=(-2,-1), next=(5,10)
+    Scout 2: startPoint=(3,7), heading=(1,-2), next=(4,5)
+    Scout 3: startPoint=(7,3), heading=(1,1), next=(8,4)
+  numScouts=5:
+    Scout 0: startPoint=(11,7), heading=(-1,2), next=(10,9)
+    Scout 1: startPoint=(7,11), heading=(-2,-1), next=(5,10)
+    Scout 2: startPoint=(4,10), heading=(0,-2), next=(4,8)
+    Scout 3: startPoint=(4,4), heading=(2,0), next=(6,4)
+    Scout 4: startPoint=(8,3), heading=(1,2), next=(9,5)
+  numScouts=6:
+    Scout 0: startPoint=(11,7), heading=(-1,2), next=(10,9)
+    Scout 1: startPoint=(7,11), heading=(-2,0), next=(5,11)
+    Scout 2: startPoint=(4,10), heading=(-1,-2), next=(3,8)
+    Scout 3: startPoint=(3,7), heading=(1,-2), next=(4,5)
+    Scout 4: startPoint=(7,3), heading=(2,0), next=(9,3)
+    Scout 5: startPoint=(10,4), heading=(1,2), next=(11,6)
+  numScouts=7:
+    Scout 0: startPoint=(11,7), heading=(-1,2), next=(10,9)
+    Scout 1: startPoint=(10,10), heading=(-2,0), next=(8,10)
+    Scout 2: startPoint=(6,11), heading=(-1,-1), next=(5,10)
+    Scout 3: startPoint=(3,7), heading=(0,-2), next=(3,5)
+    Scout 4: startPoint=(4,4), heading=(1,-1), next=(5,3)
+    Scout 5: startPoint=(7,3), heading=(2,1), next=(9,4)
+    Scout 6: startPoint=(10,4), heading=(1,2), next=(11,6)
+  numScouts=8:
+    Scout 0: startPoint=(11,7), heading=(-1,2), next=(10,9)
+    Scout 1: startPoint=(10,10), heading=(-2,1), next=(8,11)
+    Scout 2: startPoint=(7,11), heading=(-2,-1), next=(5,10)
+    Scout 3: startPoint=(4,10), heading=(-1,-2), next=(3,8)
+    Scout 4: startPoint=(3,7), heading=(1,-2), next=(4,5)
+    Scout 5: startPoint=(4,4), heading=(2,-1), next=(6,3)
+    Scout 6: startPoint=(7,3), heading=(2,1), next=(9,4)
+    Scout 7: startPoint=(10,4), heading=(1,2), next=(11,6)
+
+=== Top edge (0, 7) ===
+  numScouts=1:
+    Scout 0: startPoint=(4,7), heading=(0,2), next=(4,9)
+  numScouts=2:
+    Scout 0: startPoint=(4,7), heading=(-1,2), next=(3,9)
+    Scout 1: startPoint=(0,11), heading=(1,-1), next=(1,10)
+  numScouts=3:
+    Scout 0: startPoint=(4,7), heading=(-1,2), next=(3,9)
+    Scout 1: startPoint=(3,10), heading=(0,-2), next=(3,8)
+    Scout 2: startPoint=(3,4), heading=(1,2), next=(4,6)
+  numScouts=4:
+    Scout 0: startPoint=(4,7), heading=(0,2), next=(4,9)
+    Scout 1: startPoint=(3,10), heading=(-2,1), next=(1,11)
+    Scout 2: startPoint=(0,11), heading=(1,-2), next=(1,9)
+    Scout 3: startPoint=(4,6), heading=(0,2), next=(4,8)
+  numScouts=5:
+    Scout 0: startPoint=(4,7), heading=(0,2), next=(4,9)
+    Scout 1: startPoint=(3,10), heading=(-1,1), next=(2,11)
+    Scout 2: startPoint=(3,10), heading=(0,-2), next=(3,8)
+    Scout 3: startPoint=(3,4), heading=(1,1), next=(4,5)
+    Scout 4: startPoint=(4,6), heading=(0,2), next=(4,8)
+  numScouts=6:
+    Scout 0: startPoint=(4,7), heading=(0,2), next=(4,9)
+    Scout 1: startPoint=(3,9), heading=(-1,2), next=(2,11)
+    Scout 2: startPoint=(3,10), heading=(-2,1), next=(1,11)
+    Scout 3: startPoint=(0,11), heading=(1,-2), next=(1,9)
+    Scout 4: startPoint=(3,4), heading=(1,1), next=(4,5)
+    Scout 5: startPoint=(4,6), heading=(0,2), next=(4,8)
+  numScouts=7:
+    Scout 0: startPoint=(4,7), heading=(0,2), next=(4,9)
+    Scout 1: startPoint=(4,8), heading=(0,2), next=(4,10)
+    Scout 2: startPoint=(3,10), heading=(-2,0), next=(1,10)
+    Scout 3: startPoint=(0,11), heading=(0,-2), next=(0,9)
+    Scout 4: startPoint=(1,3), heading=(1,1), next=(2,4)
+    Scout 5: startPoint=(3,5), heading=(0,2), next=(3,7)
+    Scout 6: startPoint=(4,6), heading=(0,2), next=(4,8)
+  numScouts=8:
+    Scout 0: startPoint=(4,7), heading=(0,2), next=(4,9)
+    Scout 1: startPoint=(4,8), heading=(0,2), next=(4,10)
+    Scout 2: startPoint=(3,9), heading=(-1,2), next=(2,11)
+    Scout 3: startPoint=(3,10), heading=(-2,1), next=(1,11)
+    Scout 4: startPoint=(0,11), heading=(1,-2), next=(1,9)
+    Scout 5: startPoint=(3,4), heading=(1,1), next=(4,5)
+    Scout 6: startPoint=(4,5), heading=(0,2), next=(4,7)
+    Scout 7: startPoint=(4,6), heading=(0,2), next=(4,8)
+
+=== Bottom edge (14, 7) ===
+  numScouts=1:
+    Scout 0: startPoint=(14,3), heading=(0,1), next=(14,4)
+  numScouts=2:
+    Scout 0: startPoint=(14,11), heading=(-1,-1), next=(13,10)
+    Scout 1: startPoint=(10,7), heading=(2,0), next=(12,7)
+  numScouts=3:
+    Scout 0: startPoint=(14,11), heading=(-2,-1), next=(12,10)
+    Scout 1: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 2: startPoint=(11,4), heading=(2,1), next=(13,5)
+  numScouts=4:
+    Scout 0: startPoint=(14,11), heading=(-2,-1), next=(12,10)
+    Scout 1: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 2: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 3: startPoint=(11,4), heading=(2,1), next=(13,5)
+  numScouts=5:
+    Scout 0: startPoint=(14,11), heading=(-2,-1), next=(12,10)
+    Scout 1: startPoint=(10,8), heading=(0,-2), next=(10,6)
+    Scout 2: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 3: startPoint=(10,6), heading=(1,-1), next=(11,5)
+    Scout 4: startPoint=(11,4), heading=(2,1), next=(13,5)
+  numScouts=6:
+    Scout 0: startPoint=(14,11), heading=(-2,-1), next=(12,10)
+    Scout 1: startPoint=(11,9), heading=(0,-2), next=(11,7)
+    Scout 2: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 3: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 4: startPoint=(11,5), heading=(1,-2), next=(12,3)
+    Scout 5: startPoint=(11,4), heading=(2,1), next=(13,5)
+  numScouts=7:
+    Scout 0: startPoint=(14,11), heading=(-2,-1), next=(12,10)
+    Scout 1: startPoint=(11,10), heading=(-1,-1), next=(10,9)
+    Scout 2: startPoint=(10,8), heading=(0,-2), next=(10,6)
+    Scout 3: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 4: startPoint=(10,6), heading=(0,-2), next=(10,4)
+    Scout 5: startPoint=(11,4), heading=(1,-1), next=(12,3)
+    Scout 6: startPoint=(11,4), heading=(2,1), next=(13,5)
+  numScouts=8:
+    Scout 0: startPoint=(14,11), heading=(-2,-1), next=(12,10)
+    Scout 1: startPoint=(11,10), heading=(-1,-1), next=(10,9)
+    Scout 2: startPoint=(10,9), heading=(0,-2), next=(10,7)
+    Scout 3: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 4: startPoint=(10,7), heading=(0,-2), next=(10,5)
+    Scout 5: startPoint=(10,6), heading=(0,-2), next=(10,4)
+    Scout 6: startPoint=(11,4), heading=(1,-1), next=(12,3)
+    Scout 7: startPoint=(11,4), heading=(2,1), next=(13,5)
+
+=== Left edge (7, 0) ===
+  numScouts=1:
+    Scout 0: startPoint=(11,0), heading=(0,2), next=(11,2)
+  numScouts=2:
+    Scout 0: startPoint=(11,0), heading=(-1,1), next=(10,1)
+    Scout 1: startPoint=(7,4), heading=(1,-1), next=(8,3)
+  numScouts=3:
+    Scout 0: startPoint=(11,0), heading=(-1,2), next=(10,2)
+    Scout 1: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 2: startPoint=(4,3), heading=(2,-1), next=(6,2)
+  numScouts=4:
+    Scout 0: startPoint=(11,0), heading=(-1,2), next=(10,2)
+    Scout 1: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 2: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 3: startPoint=(4,3), heading=(2,-1), next=(6,2)
+  numScouts=5:
+    Scout 0: startPoint=(11,0), heading=(-1,2), next=(10,2)
+    Scout 1: startPoint=(8,4), heading=(-2,0), next=(6,4)
+    Scout 2: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 3: startPoint=(6,4), heading=(-1,-1), next=(5,3)
+    Scout 4: startPoint=(4,3), heading=(2,-1), next=(6,2)
+  numScouts=6:
+    Scout 0: startPoint=(11,0), heading=(-1,2), next=(10,2)
+    Scout 1: startPoint=(9,3), heading=(-2,0), next=(7,3)
+    Scout 2: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 3: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 4: startPoint=(5,3), heading=(-2,-1), next=(3,2)
+    Scout 5: startPoint=(4,3), heading=(2,-1), next=(6,2)
+  numScouts=7:
+    Scout 0: startPoint=(11,0), heading=(-1,2), next=(10,2)
+    Scout 1: startPoint=(10,3), heading=(-1,1), next=(9,4)
+    Scout 2: startPoint=(8,4), heading=(-2,0), next=(6,4)
+    Scout 3: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 4: startPoint=(6,4), heading=(-2,0), next=(4,4)
+    Scout 5: startPoint=(4,3), heading=(-1,-1), next=(3,2)
+    Scout 6: startPoint=(4,3), heading=(2,-1), next=(6,2)
+  numScouts=8:
+    Scout 0: startPoint=(11,0), heading=(-1,2), next=(10,2)
+    Scout 1: startPoint=(10,3), heading=(-1,1), next=(9,4)
+    Scout 2: startPoint=(9,4), heading=(-2,0), next=(7,4)
+    Scout 3: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 4: startPoint=(7,4), heading=(-2,0), next=(5,4)
+    Scout 5: startPoint=(6,4), heading=(-2,0), next=(4,4)
+    Scout 6: startPoint=(4,3), heading=(-1,-1), next=(3,2)
+    Scout 7: startPoint=(4,3), heading=(2,-1), next=(6,2)
+
+=== Right edge (7, 14) ===
+  numScouts=1:
+    Scout 0: startPoint=(11,14), heading=(1,0), next=(12,14)
+  numScouts=2:
+    Scout 0: startPoint=(11,14), heading=(-1,-1), next=(10,13)
+    Scout 1: startPoint=(7,10), heading=(1,1), next=(8,11)
+  numScouts=3:
+    Scout 0: startPoint=(11,14), heading=(-2,-1), next=(9,13)
+    Scout 1: startPoint=(7,10), heading=(2,0), next=(9,10)
+    Scout 2: startPoint=(10,11), heading=(1,2), next=(11,13)
+  numScouts=4:
+    Scout 0: startPoint=(11,14), heading=(-2,-1), next=(9,13)
+    Scout 1: startPoint=(6,10), heading=(2,0), next=(8,10)
+    Scout 2: startPoint=(7,10), heading=(2,0), next=(9,10)
+    Scout 3: startPoint=(10,11), heading=(1,2), next=(11,13)
+  numScouts=5:
+    Scout 0: startPoint=(11,14), heading=(-2,-1), next=(9,13)
+    Scout 1: startPoint=(5,11), heading=(2,0), next=(7,11)
+    Scout 2: startPoint=(7,10), heading=(2,0), next=(9,10)
+    Scout 3: startPoint=(8,10), heading=(2,0), next=(10,10)
+    Scout 4: startPoint=(10,11), heading=(1,2), next=(11,13)
+  numScouts=6:
+    Scout 0: startPoint=(11,14), heading=(-2,-1), next=(9,13)
+    Scout 1: startPoint=(4,11), heading=(1,-1), next=(5,10)
+    Scout 2: startPoint=(6,10), heading=(2,0), next=(8,10)
+    Scout 3: startPoint=(7,10), heading=(2,0), next=(9,10)
+    Scout 4: startPoint=(9,11), heading=(2,1), next=(11,12)
+    Scout 5: startPoint=(10,11), heading=(1,2), next=(11,13)
+  numScouts=7:
+    Scout 0: startPoint=(11,14), heading=(-2,-1), next=(9,13)
+    Scout 1: startPoint=(4,11), heading=(1,-1), next=(5,10)
+    Scout 2: startPoint=(6,10), heading=(2,0), next=(8,10)
+    Scout 3: startPoint=(7,10), heading=(2,0), next=(9,10)
+    Scout 4: startPoint=(8,10), heading=(2,0), next=(10,10)
+    Scout 5: startPoint=(9,11), heading=(2,1), next=(11,12)
+    Scout 6: startPoint=(10,11), heading=(1,2), next=(11,13)
+  numScouts=8:
+    Scout 0: startPoint=(11,14), heading=(-2,-1), next=(9,13)
+    Scout 1: startPoint=(4,11), heading=(1,-1), next=(5,10)
+    Scout 2: startPoint=(5,10), heading=(2,0), next=(7,10)
+    Scout 3: startPoint=(6,10), heading=(2,0), next=(8,10)
+    Scout 4: startPoint=(7,10), heading=(2,0), next=(9,10)
+    Scout 5: startPoint=(8,10), heading=(2,0), next=(10,10)
+    Scout 6: startPoint=(9,11), heading=(2,1), next=(11,12)
+    Scout 7: startPoint=(10,11), heading=(1,2), next=(11,13)
+
+=== Top-Left corner (0, 0) ===
+  numScouts=1:
+    Scout 0: startPoint=(4,0), heading=(0,2), next=(4,2)
+  numScouts=2:
+    Scout 0: startPoint=(4,0), heading=(-1,2), next=(3,2)
+    Scout 1: startPoint=(3,3), heading=(1,-2), next=(4,1)
+  numScouts=3:
+    Scout 0: startPoint=(4,0), heading=(-1,2), next=(3,2)
+    Scout 1: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 2: startPoint=(0,4), heading=(1,-1), next=(1,3)
+  numScouts=4:
+    Scout 0: startPoint=(4,0), heading=(0,2), next=(4,2)
+    Scout 1: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 2: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 3: startPoint=(0,4), heading=(1,-1), next=(1,3)
+  numScouts=5:
+    Scout 0: startPoint=(4,0), heading=(0,2), next=(4,2)
+    Scout 1: startPoint=(3,2), heading=(-1,2), next=(2,4)
+    Scout 2: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 3: startPoint=(2,3), heading=(-2,0), next=(0,3)
+    Scout 4: startPoint=(0,4), heading=(1,-1), next=(1,3)
+  numScouts=6:
+    Scout 0: startPoint=(4,0), heading=(0,2), next=(4,2)
+    Scout 1: startPoint=(4,2), heading=(-1,2), next=(3,4)
+    Scout 2: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 3: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 4: startPoint=(2,3), heading=(-2,0), next=(0,3)
+    Scout 5: startPoint=(0,4), heading=(1,-1), next=(1,3)
+  numScouts=7:
+    Scout 0: startPoint=(4,0), heading=(0,2), next=(4,2)
+    Scout 1: startPoint=(4,1), heading=(0,2), next=(4,3)
+    Scout 2: startPoint=(3,2), heading=(-1,2), next=(2,4)
+    Scout 3: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 4: startPoint=(2,3), heading=(-2,1), next=(0,4)
+    Scout 5: startPoint=(1,4), heading=(-1,0), next=(0,4)
+    Scout 6: startPoint=(0,4), heading=(1,-1), next=(1,3)
+  numScouts=8:
+    Scout 0: startPoint=(4,0), heading=(0,2), next=(4,2)
+    Scout 1: startPoint=(4,1), heading=(0,2), next=(4,3)
+    Scout 2: startPoint=(3,2), heading=(-1,2), next=(2,4)
+    Scout 3: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 4: startPoint=(3,3), heading=(-1,1), next=(2,4)
+    Scout 5: startPoint=(2,3), heading=(-2,1), next=(0,4)
+    Scout 6: startPoint=(1,4), heading=(-1,0), next=(0,4)
+    Scout 7: startPoint=(0,4), heading=(1,-1), next=(1,3)
+
+=== Bottom-Right corner (14, 14) ===
+  numScouts=1:
+    Scout 0: startPoint=(14,10), heading=(0,1), next=(14,11)
+  numScouts=2:
+    Scout 0: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 1: startPoint=(11,11), heading=(2,1), next=(13,12)
+  numScouts=3:
+    Scout 0: startPoint=(10,14), heading=(1,-2), next=(11,12)
+    Scout 1: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 2: startPoint=(14,10), heading=(0,1), next=(14,11)
+  numScouts=4:
+    Scout 0: startPoint=(10,14), heading=(0,-2), next=(10,12)
+    Scout 1: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 2: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 3: startPoint=(14,10), heading=(0,1), next=(14,11)
+  numScouts=5:
+    Scout 0: startPoint=(10,14), heading=(0,-2), next=(10,12)
+    Scout 1: startPoint=(11,12), heading=(1,-2), next=(12,10)
+    Scout 2: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 3: startPoint=(12,11), heading=(2,0), next=(14,11)
+    Scout 4: startPoint=(14,10), heading=(0,1), next=(14,11)
+  numScouts=6:
+    Scout 0: startPoint=(10,14), heading=(0,-2), next=(10,12)
+    Scout 1: startPoint=(10,12), heading=(1,-2), next=(11,10)
+    Scout 2: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 3: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 4: startPoint=(12,11), heading=(2,0), next=(14,11)
+    Scout 5: startPoint=(14,10), heading=(0,1), next=(14,11)
+  numScouts=7:
+    Scout 0: startPoint=(10,14), heading=(0,-2), next=(10,12)
+    Scout 1: startPoint=(10,13), heading=(0,-2), next=(10,11)
+    Scout 2: startPoint=(11,12), heading=(1,-2), next=(12,10)
+    Scout 3: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 4: startPoint=(12,11), heading=(2,-1), next=(14,10)
+    Scout 5: startPoint=(13,10), heading=(1,0), next=(14,10)
+    Scout 6: startPoint=(14,10), heading=(0,1), next=(14,11)
+  numScouts=8:
+    Scout 0: startPoint=(10,14), heading=(0,-2), next=(10,12)
+    Scout 1: startPoint=(10,13), heading=(0,-2), next=(10,11)
+    Scout 2: startPoint=(11,12), heading=(1,-2), next=(12,10)
+    Scout 3: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 4: startPoint=(11,11), heading=(1,-1), next=(12,10)
+    Scout 5: startPoint=(12,11), heading=(2,-1), next=(14,10)
+    Scout 6: startPoint=(13,10), heading=(1,0), next=(14,10)
+    Scout 7: startPoint=(14,10), heading=(0,1), next=(14,11)
+Running Territory nextVantage tests...
+
+--- Coverage for numScouts=1 (home at 7,7) ---
+  Scout 0: covered 80/224 cells (35.7143%)
+    Unseen (144 cells): (0,0) (0,1) (0,2) (0,3) (0,4) (0,5) (0,6) (0,7) ...
+
+--- Coverage for numScouts=2 (home at 7,7) ---
+  Scout 0: covered 107/112 cells (95.5357%)
+    Unseen (5 cells): (0,8) (1,8) (2,8) (3,8) (4,8) 
+  Scout 1: covered 26/113 cells (23.0088%)
+    Unseen (87 cells): (0,0) (0,1) (0,2) (0,3) (0,4) (1,0) (1,1) (1,2) ...
+
+--- Coverage for numScouts=3 (home at 7,7) ---
+  Scout 0: covered 72/75 cells (96%)
+    Unseen (3 cells): (4,13) (4,14) (14,7) 
+  Scout 1: covered 76/77 cells (98.7013%)
+    Unseen (1 cells): (4,13) 
+  Scout 2: covered 76/76 cells (100%)
+
+--- Coverage for numScouts=4 (home at 7,7) ---
+  Scout 0: covered 56/56 cells (100%)
+  Scout 1: covered 57/57 cells (100%)
+  Scout 2: covered 57/57 cells (100%)
+  Scout 3: covered 57/57 cells (100%)
+
+--- Coverage for numScouts=5 (home at 7,7) ---
+  Scout 0: covered 38/44 cells (86.3636%)
+    Unseen (6 cells): (10,12) (11,12) (11,13) (11,14) (14,7) (14,8) 
+  Scout 1: covered 41/48 cells (85.4167%)
+    Unseen (7 cells): (6,14) (7,14) (8,14) (9,14) (10,13) (10,14) (11,14) 
+  Scout 2: covered 51/51 cells (100%)
+  Scout 3: covered 45/46 cells (97.8261%)
+    Unseen (1 cells): (1,3) 
+  Scout 4: covered 40/46 cells (86.9565%)
+    Unseen (6 cells): (12,5) (12,6) (13,5) (13,6) (14,5) (14,6) 
+
+--- Coverage for numScouts=6 (home at 7,7) ---
+  Scout 0: covered 35/37 cells (94.5946%)
+    Unseen (2 cells): (14,7) (14,8) 
+  Scout 1: covered 37/39 cells (94.8718%)
+    Unseen (2 cells): (7,8) (10,11) 
+  Scout 2: covered 40/40 cells (100%)
+  Scout 3: covered 35/38 cells (92.1053%)
+    Unseen (3 cells): (0,6) (0,7) (0,8) 
+  Scout 4: covered 37/39 cells (94.8718%)
+    Unseen (2 cells): (4,3) (7,6) 
+  Scout 5: covered 40/40 cells (100%)
+
+--- Coverage for numScouts=7 (home at 7,7) ---
+  Scout 0: covered 33/35 cells (94.2857%)
+    Unseen (2 cells): (14,7) (14,8) 
+  Scout 1: covered 36/36 cells (100%)
+  Scout 2: covered 33/33 cells (100%)
+  Scout 3: covered 32/33 cells (96.9697%)
+    Unseen (1 cells): (6,7) 
+  Scout 4: covered 33/33 cells (100%)
+  Scout 5: covered 28/33 cells (84.8485%)
+    Unseen (5 cells): (4,0) (5,0) (6,0) (7,0) (8,0) 
+  Scout 6: covered 33/33 cells (100%)
+
+--- Coverage for numScouts=8 (home at 7,7) ---
+  Scout 0: covered 26/28 cells (92.8571%)
+    Unseen (2 cells): (14,7) (14,8) 
+  Scout 1: covered 29/29 cells (100%)
+  Scout 2: covered 26/29 cells (89.6552%)
+    Unseen (3 cells): (6,14) (7,14) (8,14) 
+  Scout 3: covered 29/29 cells (100%)
+  Scout 4: covered 26/29 cells (89.6552%)
+    Unseen (3 cells): (0,6) (0,7) (0,8) 
+  Scout 5: covered 29/29 cells (100%)
+  Scout 6: covered 26/29 cells (89.6552%)
+    Unseen (3 cells): (6,0) (7,0) (8,0) 
+  Scout 7: covered 29/29 cells (100%)
+27232 checks completed with 0 failures.
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Passed.
+"territory_tests" end time: Oct 02 15:16 EDT
+"territory_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 02 15:16 EDT
