@@ -6,15 +6,17 @@
 #include "../include/antworld.h"
 #include "../include/analysis.h"
 
-/** @brief Runs the ant world simulation and compares actual performance against theoretical Analysis benchmarks.
+/** @brief The main function that will run the game. If you are not using a IDE gui, this is the executable you want to target when you build
  */
 int main(int argc, char* argv[]) {
     // Pick a deterministic seed (or allow command line override)
-    uint32_t SEED = (argc > 1) ? static_cast<uint32_t>(std::stoul(argv[1])) : 42;
+    std::random_device rd;
+    uint32_t SEED = rd();
 
     const int MAX_SIMULATION_STEP_COUNT = 1000;
     AntWorld gameInstance = AntWorld(SEED);
 
+    /*
     // Initial state before simulation starts
     std::vector<int> initialEnergies;
     for (const auto& ant : gameInstance.ants) {
@@ -35,15 +37,25 @@ int main(int argc, char* argv[]) {
     double greedyFrac = analysis.greedyOptimum(initialEnergies);
     int naiveExpectedFood = static_cast<int>(std::round(naiveFrac * totalFood));
     int greedyExpectedFood = static_cast<int>(std::round(greedyFrac * totalFood));
+    */
 
     // Run simulation
     bool gameOver = false;
-    int stepCount = 0;
-    while (!gameOver && stepCount < MAX_SIMULATION_STEP_COUNT) {
+    int stepCount = 1;
+    while (!gameOver && stepCount <= MAX_SIMULATION_STEP_COUNT) {
         gameOver = gameInstance.worldStep();
         stepCount++;
     }
 
+    if (gameOver) {
+        printf("GAME OVER!! Total score: %d\n", gameInstance.score);
+    } else if (stepCount >= MAX_SIMULATION_STEP_COUNT) {
+        printf("Game not finished. Hit maxmimum simulation step count\n");
+    } else {
+        printf("Termination reached for unknown reason.\n");
+    }
+
+    /*
     // Update analysis world copy with final results for post-game metrics
     analysis.world.score = gameInstance.score;
     analysis.world.foodMap = gameInstance.foodMap;
@@ -82,6 +94,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Incomplete Returns:   " << incompletes << " (food dropped by dead ants)\n";
     std::cout << "Actual Efficiency:    " << std::setprecision(4) << actualEfficiency << " food/energy\n";
     std::cout << "=======================================================\n";
+    */
 
     return 0;
 }
