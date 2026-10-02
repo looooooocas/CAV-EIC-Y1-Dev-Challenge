@@ -17,19 +17,25 @@ struct Territory {
     Coord home;
     double start;
     double end;
+    const MapTemplate* map; // terrain map for bounds checking in nextVantage
 
     Territory() = default;
-    Territory(Coord home, double start, double end)
-        : home(home), start(start), end(end) {}
+    Territory(Coord home, double start, double end, const MapTemplate& map)
+        : home(home), start(start), end(end), map(&map) {}
 
     bool within(Coord p) const;
-    Coord nextVantage(Coord currentVantage);
+    double angle(Coord p) const;
+    bool crosses45(Coord a, Coord b) const;
+    Coord nextVantage(Coord currentVantage, Coord& heading);
+    Coord startPoint(int foodRadius);
+    Coord startHeading(int foodRadius);
 };
 
 // Pathfinding & Movement helpers
-int shortestPathLength(Coord start, Coord dest, AntWorld& world);
+int shortestPathCost(Coord start, Coord dest, AntWorld& world);
 bool sortByDistance(Coord a, Coord b, Coord referencePoint, AntWorld& world);
 bool roundTrip(Ant& ant, Coord dest, AntWorld& world);
+Coord safeMove(Ant& ant, Coord dest, AntWorld& world);
 
 // Debugging / Logging
 void outputEnergies(std::vector<Ant> ants);
