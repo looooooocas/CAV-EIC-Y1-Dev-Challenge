@@ -5,25 +5,63 @@
 #include <algorithm>
 
 namespace {
-// 6-bit signal protocol helpers (3 bits row, 3 bits col)
+// 6-bit signal protocol helpers (3 bits row, 3 bits col, 3-bit signed two's complement)
 inline Coord decodeSignal(const bool buffer[6]) {
     int r = (buffer[0] << 2) | (buffer[1] << 1) | buffer[2];
     int c = (buffer[3] << 2) | (buffer[4] << 1) | buffer[5];
-    return Coord(r, c);
+    int dr = (r & 4) ? (r - 8) : r;
+    int dc = (c & 4) ? (c - 8) : c;
+    return Coord(dr, dc);
 }
 
-inline bool getSignalBit(int relFirst, int relSecond, int bitIndex) {
+inline bool getSignalBit(Coord rel, int bitIndex) {
     if (bitIndex < 3) {
-        return (relFirst >> (2 - bitIndex)) & 1;
+        return (rel.first >> (2 - bitIndex)) & 1;
     }
-    return (relSecond >> (5 - bitIndex)) & 1;
+    return (rel.second >> (5 - bitIndex)) & 1;
 }
 } // anonymous namespace
 
+template <typename RoleAnt>
+inline void independentSearch(RoleAnt& roleAnt) {
+    Ant& ant = *roleAnt.ant;
+    AntWorld& world = *roleAnt.world;
+
+    // Move to the current broadcast point (repurposed as search vantage cursor)
+    safeMove(ant, roleAnt.broadcastPoint, world);
+
+    // Scan for food from this vantage
+    std::vector<Coord> visible = ant.foodScan(world.foodMap);
+    if (!visible.empty()){
+        // Prefer the closest food to home that we can afford a round trip on
+        std::sort(visible.begin(), visible.end(), [&](Coord a, Coord b){
+            return sortByDistance(a, b, ant.homeCoord, world);
+        });
+        for (auto& food : visible){
+            if (roundTrip(ant, food, world)){
+                // Delivered food to homeCoord; return so updateWorld() scores it before we leave on next turn
+                return;
+            }
+        }
+        // Return to broadcast point so the next tick advances cleanly
+        safeMove(ant, roleAnt.broadcastPoint, world);
+    }
+
+    // Step to the next vantage in the territory grid
+    roleAnt.broadcastPoint = roleAnt.territory.nextVantage(roleAnt.broadcastPoint, roleAnt.heading);
+}
+
 class Carrier{ // wrapper for carrier ant; allows us to track other info for carrier
     public:
+    enum State {
+        MOVE_TO_LISTENING_POINT = 0,
+        RECEIVE_SIGNAL,
+        INDEPENDENT_SEARCH,
+        DEAD
+    };
+
     Ant* ant;
-    int state = 0;
+    State state = MOVE_TO_LISTENING_POINT;
     bool dead = false;
     Territory territory;
     Coord broadcastPoint;
@@ -54,80 +92,95 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
             }
         }
         safeMove(*ant, listeningPoint, *world);
-        state = 1;
+        ant->erasePheromone(world->pheromoneMap);
+        state = RECEIVE_SIGNAL;
         // TODO: insufficient energy?
     }
 
     void receiveSignal(){
-        signalBuffer[signalCount++] = world->pheromoneMap[broadcastPoint.first][broadcastPoint.second];
-        if (signalCount < 6) return;
-
-        Coord rel = decodeSignal(signalBuffer);
-        Coord foodCoord = rel - Coord(ant->foodRadius, ant->foodRadius) + broadcastPoint;
-
-        if (rel.first == 0 && rel.second == 0){
-            state = 2; // dead scout — switch to independent search
+        if (signalCount < 6){
+            signalBuffer[signalCount] = world->pheromoneMap[broadcastPoint.first][broadcastPoint.second];
         }
-        else if (rel.first == 7 && rel.second == 7){ // "over" signal
-            broadcastPoint = territory.nextVantage(broadcastPoint, heading); // uses the scouts heading
-            state = 0; // next step is to move to vantage point
-        }
-        else if (shortestPathCost(ant->position, foodCoord, *world) * 2 <= ant->energy // round trip possible
-            && world->pheromoneMap[ant->position.first][ant->position.second] == 0){ // signal unclaimed by another carrier
-            ant->dropPheromone(world->pheromoneMap); // mark that the signal has been answered
-            
-            safeMove(*ant, foodCoord, *world);
-            if (ant->carryingFood){ 
-                ant->returnHome(world->terrainMap, world->foodMap);
-            } else { // food was taken before we got here; grab anything visible
-                std::vector<Coord> visible = ant->foodScan(world->foodMap);
-                if (!visible.empty()){
-                    roundTrip(*ant, visible[0], *world);
-                }
+        signalCount++;
+
+        if (signalCount == 6){
+            Coord rel = decodeSignal(signalBuffer);
+
+            if (rel.first == 0 && rel.second == 0){
+                state = INDEPENDENT_SEARCH; // dead scout — switch to independent search
+                signalCount = 0;
+                std::fill(signalBuffer, signalBuffer + 6, false);
+                return;
             }
-            moveToListeningPoint(); // return to listening point
+            else if (rel.first == -4 && rel.second == -4){ // "over" signal (-4, -4)
+                // Wait for the 7th (buffer) tick before moving so scout and carrier advance in lockstep
+                return;
+            }
+
+            Coord foodCoord = broadcastPoint + rel;
+            int tripCost = shortestPathCost(ant->position, foodCoord, *world) + shortestPathCost(foodCoord, ant->homeCoord, *world);
+            if (tripCost < ant->energy && world->pheromoneMap[ant->position.first][ant->position.second] == 0){ // full trip possible & signal unclaimed
+                ant->dropPheromone(world->pheromoneMap); // mark that the signal has been answered
+                
+                safeMove(*ant, foodCoord, *world);
+                if (ant->carryingFood){ 
+                    safeMove(*ant, ant->homeCoord, *world);
+                    state = MOVE_TO_LISTENING_POINT;
+                    signalCount = 0;
+                    std::fill(signalBuffer, signalBuffer + 6, false);
+                    return;
+                } else { // food was taken before we got here; grab anything visible
+                    std::vector<Coord> visible = ant->foodScan(world->foodMap);
+                    if (!visible.empty()){
+                        int fallbackCost = shortestPathCost(ant->position, visible[0], *world) + shortestPathCost(visible[0], ant->homeCoord, *world);
+                        if (fallbackCost < ant->energy){
+                            safeMove(*ant, visible[0], *world);
+                            if (ant->carryingFood){
+                                safeMove(*ant, ant->homeCoord, *world);
+                                state = MOVE_TO_LISTENING_POINT;
+                                signalCount = 0;
+                                std::fill(signalBuffer, signalBuffer + 6, false);
+                                return;
+                            }
+                        }
+                    }
+                }
+                moveToListeningPoint(); // return to listening point if no food was collected
+            }
+            // If food not claimed, wait for 7th (buffer) tick before resetting
+            return;
         }
-        signalCount = 0; // reset signal count and buffer
-        std::fill(signalBuffer, signalBuffer + 6, false);
+
+        if (signalCount >= 7){
+            Coord rel = decodeSignal(signalBuffer);
+            if (rel.first == -4 && rel.second == -4){
+                broadcastPoint = territory.nextVantage(broadcastPoint, heading);
+                state = MOVE_TO_LISTENING_POINT;
+            }
+            world->pheromoneMap[ant->position.first][ant->position.second] = 0;
+            signalCount = 0; // reset signal count and buffer after buffer tick
+            std::fill(signalBuffer, signalBuffer + 6, false);
+        }
     }
 
     void die(){
         this->dead = true;
+        this->state = DEAD;
         this->ant->energy = 1;
         this->ant->erasePheromone(world->pheromoneMap);
     }
 
     void independentSearch(){
-        // Move to the current broadcast point (repurposed as search vantage cursor)
-        safeMove(*ant, broadcastPoint, *world);
-
-        // Scan for food from this vantage
-        std::vector<Coord> visible = ant->foodScan(world->foodMap);
-        if (!visible.empty()){
-            // Prefer the closest food to home that we can afford a round trip on
-            std::sort(visible.begin(), visible.end(), [this](Coord a, Coord b){
-                return sortByDistance(a, b, ant->homeCoord, *world);
-            });
-            for (auto& food : visible){
-                if (roundTrip(*ant, food, *world)){
-                    break; // one food per visit; return to vantage after
-                }
-            }
-            // Return to broadcast point so the next tick advances cleanly
-            safeMove(*ant, broadcastPoint, *world);
-        }
-
-        // Step to the next vantage in the territory grid
-        broadcastPoint = territory.nextVantage(broadcastPoint, heading);
+        ::independentSearch(*this);
     }
 
     void forage(){
         if (dead) return;
         switch(state){
-            case 0: moveToListeningPoint(); break;
-            case 1: receiveSignal(); break;
-            case 2: independentSearch(); break; // independent search — scout is dead
-            case 3: die(); break;
+            case MOVE_TO_LISTENING_POINT: moveToListeningPoint(); break;
+            case RECEIVE_SIGNAL:          receiveSignal(); break;
+            case INDEPENDENT_SEARCH:      independentSearch(); break;
+            case DEAD:                    die(); break;
         }
         if (ant->energy <= 1) die();
     }
@@ -135,80 +188,97 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
 
 class Scout{ // wrapper for scout ant; allows us to track other info for scout
     public: 
+    enum State {
+        ASSUME_VANTAGE = 0,
+        SIGNAL_FOOD,
+        SIGNAL_OVER,
+        INDEPENDENT_SEARCH,
+        DEAD
+    };
+
     Ant* ant;
-    int state = 0;
+    State state = ASSUME_VANTAGE;
     bool dead = false;
     int signalCount = 0;
-    int cachedRelativeFirst = 0;
-    int cachedRelativeSecond = 0;
+    Coord cachedRelative = Coord(0, 0);
     Territory territory;
     Coord heading;
-    Coord vantagePoint;
+    Coord broadcastPoint;
     AntWorld* world;
 
     Scout(Ant* ant, Territory territory, AntWorld& world){
         this->ant = ant;
         this->territory = territory;
-        this->vantagePoint = territory.startPoint(ant->foodRadius);
+        this->broadcastPoint = territory.startPoint(ant->foodRadius);
         this->heading = territory.startHeading(ant->foodRadius);
         this->world = &world;
     }
 
     void assumeVantage(){
-        safeMove(*ant, vantagePoint, *world);
-        if (ant->position == vantagePoint){
-            state++; // reached vantage, begin signalling
+        safeMove(*ant, broadcastPoint, *world);
+        if (ant->position == broadcastPoint){
+            state = SIGNAL_FOOD; // reached vantage, begin signalling
         } else {
             // Can't reach vantage — insufficient energy for the terrain cost.
-            // nextVantage already guarantees in-bounds coords, so this is a genuine
-            // energy failure. Die so carriers detect it via the (0,0) signal.
-            state = 3;
+            // Die so carriers detect it via the (0,0) signal.
+            state = DEAD;
         }
     }
 
-    void signalCoord(Coord foodCoord){
+    void signalCoord(){
         ant->erasePheromone(world->pheromoneMap);
-        if (signalCount == 0){ // cache the relative offsets once, so all 6 bits describe the same food item
-            cachedRelativeFirst  = foodCoord.first  - ant->position.first  + ant->foodRadius;
-            cachedRelativeSecond = foodCoord.second - ant->position.second + ant->foodRadius;
-        }
         if (signalCount < 6){
-            if (getSignalBit(cachedRelativeFirst, cachedRelativeSecond, signalCount)){
+            if (getSignalBit(cachedRelative, signalCount)){
                 ant->dropPheromone(world->pheromoneMap);
             }
             signalCount++;
-        }
-        if (signalCount >= 6){ // this signal is over, check if food was removed, reset for the next
+        } else if (signalCount == 6){
+            // 7th tick (index 6): buffer/dead tick. Pheromone already erased above.
             signalCount = 0;
-            if(world->foodMap[foodCoord.first][foodCoord.second] == 1){ // food wasn't picked up, do it its self
+            int dr = (cachedRelative.first & 4) ? (cachedRelative.first - 8) : cachedRelative.first;
+            int dc = (cachedRelative.second & 4) ? (cachedRelative.second - 8) : cachedRelative.second;
+            Coord foodCoord = ant->position + Coord(dr, dc);
+            if (world->foodMap[foodCoord.first][foodCoord.second] == 1){ // food wasn't picked up, do it itself
                 safeMove(*ant, foodCoord, *world);
-                ant->returnHome(world->terrainMap, world->foodMap);
-                state = 3; // kills self, TODO: should be solo explore
+                safeMove(*ant, ant->homeCoord, *world);
+                state = INDEPENDENT_SEARCH;
+                return;
             }
         }
     }
 
     void signalFood(){ // if sees food, signals it; if not, tells us to change state
-        std::vector<Coord> visibleFood = ant->foodScan(world->foodMap);
-        if (visibleFood.empty()){
-            state++;
-            return;
+        if (signalCount == 0){
+            std::vector<Coord> visibleFood = ant->foodScan(world->foodMap);
+            if (visibleFood.empty()){
+                state = SIGNAL_OVER;
+                signalOver();
+                return;
+            }
+            std::sort(visibleFood.begin(), visibleFood.end(), [this](Coord a, Coord b){
+                return sortByDistance(a, b, ant->homeCoord, *world);
+            });
+
+            cachedRelative = Coord((visibleFood[0].first  - ant->position.first)  & 7,
+                                   (visibleFood[0].second - ant->position.second) & 7);
         }
-        std::sort(visibleFood.begin(), visibleFood.end(), [this](Coord a, Coord b){
-            return sortByDistance(a, b, ant->homeCoord, *world);
-        });
-        signalCoord(visibleFood[0]);
+        signalCoord();
     }
 
     bool signalOver(){
         if (signalCount < 6){
-            ant->dropPheromone(world->pheromoneMap);
+            // "Over" signal is (-4, -4), encoded in 3-bit two's complement as [1, 0, 0, 1, 0, 0]
+            if (signalCount == 0 || signalCount == 3){
+                ant->dropPheromone(world->pheromoneMap);
+            } else {
+                ant->erasePheromone(world->pheromoneMap);
+            }
             signalCount++;
             return true;
         }
         ant->erasePheromone(world->pheromoneMap);
         signalCount = 0;
-        state = 0;
+        state = ASSUME_VANTAGE;
         // If the scout picked up food at this vantage (move() auto-collects on arrival),
         // drop it here before advancing. From the next vantage the food is at exactly
         // foodRadius distance and encodes as a non-zero relative coord — safe for carriers.
@@ -216,12 +286,17 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
             world->foodMap[ant->position.first][ant->position.second] = 1;
             ant->carryingFood = false;
         }
-        vantagePoint = territory.nextVantage(vantagePoint, heading);
+        broadcastPoint = territory.nextVantage(broadcastPoint, heading);
         return false;
+    }
+
+    void independentSearch(){
+        ::independentSearch(*this);
     }
 
     void die(){
         this->dead = true;
+        this->state = DEAD;
         this->ant->energy = 1;
         this->ant->erasePheromone(world->pheromoneMap);
     }
@@ -229,10 +304,11 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
     void forage(){
         if (dead) return;
         switch(state){
-            case 0: assumeVantage(); break;
-            case 1: signalFood(); break;
-            case 2: signalOver(); break;
-            case 3: die(); break;
+            case ASSUME_VANTAGE:     assumeVantage(); break;
+            case SIGNAL_FOOD:        signalFood(); break;
+            case SIGNAL_OVER:        signalOver(); break;
+            case INDEPENDENT_SEARCH: independentSearch(); break;
+            case DEAD:               die(); break;
         }
         if (ant->energy <= 1) die();
     }
@@ -244,13 +320,12 @@ void assignRoles(std::vector<Ant>& ants, std::vector<Scout>& scouts, std::vector
     std::sort(ants.begin(), ants.end(), [](const Ant& a, const Ant& b) { return a.energy > b.energy; });
     size_t scoutCount = std::min(static_cast<size_t>(numScouts), ants.size());
     for (size_t i = 0; i < scoutCount; ++i){
-        // angular slice of the map (from home) that the scout is responsible for searching
-        Territory territory(ants[i].homeCoord, (i) * PI / numScouts, (i + 1) * PI / numScouts, world.terrainMap);
+        Territory territory(ants[i].homeCoord, i, numScouts, world.terrainMap);
         scouts.emplace_back(&ants[i], territory, world);
     }
     for (size_t i = scoutCount; i < ants.size(); ++i){
         const auto& scout = scouts[i % scouts.size()];
-        carriers.emplace_back(&ants[i], scout.territory, scout.vantagePoint, scout.heading, world);
+        carriers.emplace_back(&ants[i], scout.territory, scout.broadcastPoint, scout.heading, world);
     }
 }
 
@@ -267,14 +342,40 @@ void clearImmediateArea(std::vector<Ant>& ants, AntWorld& world){
     // TODO: if no ant can make the round trip (shouldn't really happen)
 }
 
-void signallingAnts(AntWorld& world){ // handles first stage control, team creation, and team organization
+// ============================================================================
+// Multi-run Reset Support (Needed to reset state between multiple benchmark seeds)
+// To revert: remove this block, remove resetSignalSearch(), and uncomment below.
+// ============================================================================
+static int phase = 0;
+static std::vector<Scout> scouts;
+static std::vector<Carrier> carriers;
+static AntWorld* signalWorld = nullptr;
+
+void resetSignalSearch(){
+    phase = 0;
+    scouts.clear();
+    carriers.clear();
+    signalWorld = nullptr;
+}
+// ============================================================================
+
+void signallingAnts(AntWorld& world, int numScouts){ // handles first stage control, team creation, and team organization
+    // Auto-reset when a new world instance is provided in multi-seed benchmarks
+    if (signalWorld != &world || scouts.empty()){
+        resetSignalSearch();
+        signalWorld = &world;
+    }
+
+    /* --- ORIGINAL CODE START (uncomment to revert to single-game static scope) ---
     static int phase = 0;
     static std::vector<Scout> scouts;
     static std::vector<Carrier> carriers;
+    --- ORIGINAL CODE END --- */
+
     switch (phase){
         case 0: 
             clearImmediateArea(world.ants, world);
-            assignRoles(world.ants, scouts, carriers, world);
+            assignRoles(world.ants, scouts, carriers, world, numScouts);
             phase = 1;
             break;
         case 1: // allow the ants to determine their own behaviour

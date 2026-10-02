@@ -11,15 +11,15 @@ public:
         EXPLORING = 0,
         RETURNING_HOME,
         WAIT_FOR_SCORE,
-        RETURNING_TO_STORED,
-        DEAD
+        RETURNING_TO_STORED
     };
 
     Ant* ant{nullptr};
     Territory territory;
     Coord currentVantage{0, 0};
+    Coord targetVantage{0, 0};
     Coord heading{0, 0};
-    Coord storedCoord{0, 0};
+    Coord returnCoord{0, 0};
     State state{EXPLORING};
     bool dead{false};
     AntWorld* world{nullptr};
@@ -29,24 +29,23 @@ public:
     SimpleAnt(Ant* ant, const Territory& territory, AntWorld& world)
         : ant(ant), territory(territory), world(&world) {
         this->currentVantage = this->territory.startPoint(ant->foodRadius);
+        this->targetVantage = this->currentVantage;
         this->heading = this->territory.startHeading(ant->foodRadius);
-        this->storedCoord = this->currentVantage;
+        this->returnCoord = this->currentVantage;
         this->state = EXPLORING;
         this->dead = false;
     }
 
     void explore() {
-        if (ant->energy <= 1) {
-            die();
-            return;
-        }
-
         // Safety: check if ant has enough energy to return home from its current position
         int homeCost = shortestPathCost(ant->position, ant->homeCoord, *world);
+        // Prevents ants from going too far to return home
         if (ant->energy <= homeCost + 2) {
             safeMove(*ant, ant->homeCoord, *world);
             if (ant->position == ant->homeCoord) {
                 state = WAIT_FOR_SCORE;
+            } else {
+                state = RETURNING_HOME;
             }
             return;
         }
@@ -59,18 +58,61 @@ public:
             }
         }
 
-        // 2. If at current vantage, compute the next vantage along the patrol route
-        if (ant->position == currentVantage) {
+        // 2. If at current vantage or target vantage, advance along patrol route
+        if (ant->position == currentVantage || ant->position == targetVantage) {
             currentVantage = territory.nextVantage(currentVantage, heading);
+            targetVantage = currentVantage;
         }
 
-        // 3. Move toward current vantage
-        safeMove(*ant, currentVantage, *world);
+        // 3. Check if any adjacent coordinates to currentVantage are cheaper from ant's position
+        Coord bestVantage = currentVantage;
+        int bestCost = shortestPathCost(ant->position, currentVantage, *world);
 
-        // 4. Scan again upon reaching new position
-        std::vector<Coord> newVisible = ant->foodScan(world->foodMap);
-        if (!newVisible.empty()) {
-            grabAndDeliverFood(newVisible);
+        int rows = static_cast<int>(world->terrainMap.size());
+        int cols = static_cast<int>(world->terrainMap[0].size());
+
+        static const std::vector<Coord> neighborOffsets = {
+            {-1, -1}, {-1,  0}, {-1,  1},
+            { 0, -1},           { 0,  1},
+            { 1, -1}, { 1,  0}, { 1,  1}
+        };
+
+        for (const Coord& offset : neighborOffsets) {
+            Coord neighbor = currentVantage + offset;
+            if (neighbor.first >= 0 && neighbor.first < rows &&
+                neighbor.second >= 0 && neighbor.second < cols) {
+                int cost = shortestPathCost(ant->position, neighbor, *world);
+                if (cost < bestCost) {
+                    bestCost = cost;
+                    bestVantage = neighbor;
+                }
+            }
+        }
+        targetVantage = bestVantage;
+
+        // Move toward target vantage
+        Coord prevPos = ant->position;
+        safeMove(*ant, targetVantage, *world);
+
+        if (ant->carryingFood) {
+            returnCoord = ant->position;
+            safeMove(*ant, ant->homeCoord, *world);
+            if (ant->position == ant->homeCoord) {
+                state = WAIT_FOR_SCORE;
+            } else {
+                state = RETURNING_HOME;
+            }
+            return;
+        }
+
+        if (ant->position == prevPos) {
+            safeMove(*ant, ant->homeCoord, *world);
+            if (ant->position == ant->homeCoord) {
+                state = WAIT_FOR_SCORE;
+            } else {
+                state = RETURNING_HOME;
+            }
+            return;
         }
     }
 
@@ -84,19 +126,19 @@ public:
         Coord targetFood(-1, -1);
         for (const auto& f : visibleFood) {
             int tripCost = shortestPathCost(ant->position, f, *world) + shortestPathCost(f, ant->homeCoord, *world);
-            if (tripCost < ant->energy) {
+            if (tripCost + 1 <= ant->energy) {
                 targetFood = f;
                 break;
             }
         }
 
         // If no visible food can be safely collected and brought home, do not collect
-        if (targetFood.first == -1) {
+        if (targetFood == Coord(-1,-1)) {
             return false;
         }
 
         // Store current position before leaving to grab food
-        storedCoord = ant->position;
+        returnCoord = ant->position;
 
         // Move to target food
         safeMove(*ant, targetFood, *world);
@@ -117,10 +159,6 @@ public:
     }
 
     void returnHome() {
-        if (ant->energy <= 1) {
-            die();
-            return;
-        }
         safeMove(*ant, ant->homeCoord, *world);
         if (ant->position == ant->homeCoord) {
             state = WAIT_FOR_SCORE;
@@ -129,19 +167,13 @@ public:
 
     void waitForScore() {
         // Wait a turn for the food to be scored in updateWorld().
-        // On the next turn, begin journey back to where the ant left off.
         state = RETURNING_TO_STORED;
     }
 
     void returnToStored() {
-        if (ant->energy <= 1) {
-            die();
-            return;
-        }
-
         // Safety: ensure ant has enough energy to reach storedCoord AND return home
-        int roundTripStored = shortestPathCost(ant->position, storedCoord, *world) + 
-                              shortestPathCost(storedCoord, ant->homeCoord, *world);
+        int roundTripStored = shortestPathCost(ant->position, returnCoord, *world) + 
+                              shortestPathCost(returnCoord, ant->homeCoord, *world);
         if (roundTripStored >= ant->energy) {
             // Cannot afford to return all the way to storedCoord and come back; explore locally
             state = EXPLORING;
@@ -150,8 +182,8 @@ public:
         }
 
         Coord prevPos = ant->position;
-        safeMove(*ant, storedCoord, *world);
-        if (ant->position == storedCoord || ant->position == prevPos) {
+        safeMove(*ant, returnCoord, *world);
+        if (ant->position == returnCoord || ant->position == prevPos) {
             state = EXPLORING;
             explore();
         }
@@ -159,7 +191,6 @@ public:
 
     void die() {
         this->dead = true;
-        this->state = DEAD;
         this->ant->energy = 1;
     }
 
@@ -170,11 +201,17 @@ public:
             case RETURNING_HOME:      returnHome(); break;
             case WAIT_FOR_SCORE:      waitForScore(); break;
             case RETURNING_TO_STORED: returnToStored(); break;
-            case DEAD:                die(); break;
         }
         if (ant->energy <= 1) die();
     }
 };
+
+
+
+
+
+
+// Below is for testing and analysis
 
 static std::vector<SimpleAnt> g_simpleAnts;
 static AntWorld* g_currentWorld = nullptr;

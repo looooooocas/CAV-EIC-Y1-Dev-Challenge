@@ -20,8 +20,7 @@ struct Territory {
     const MapTemplate* map; // terrain map for bounds checking in nextVantage
 
     Territory() = default;
-    Territory(Coord home, double start, double end, const MapTemplate& map)
-        : home(home), start(start), end(end), map(&map) {}
+    Territory(Coord home, int scoutIndex, int numScouts, const MapTemplate& map);
 
     bool within(Coord p) const;
     double angle(Coord p) const;
