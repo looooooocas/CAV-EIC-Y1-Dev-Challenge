@@ -5,7 +5,10 @@
 #include <algorithm>
 
 namespace {
-// 6-bit signal protocol helpers (3 bits row, 3 bits col, 3-bit signed two's complement)
+// 6-bit signal protocol constants & helpers (3 bits row, 3 bits col, 3-bit signed two's complement)
+inline constexpr Coord SIGNAL_DEAD(0, 0);
+inline constexpr Coord SIGNAL_OVER(-4, -4);
+
 inline Coord decodeSignal(const bool buffer[6]) {
     int r = (buffer[0] << 2) | (buffer[1] << 1) | buffer[2];
     int c = (buffer[3] << 2) | (buffer[4] << 1) | buffer[5];
@@ -56,8 +59,7 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
     enum State {
         MOVE_TO_LISTENING_POINT = 0,
         RECEIVE_SIGNAL,
-        INDEPENDENT_SEARCH,
-        DEAD
+        INDEPENDENT_SEARCH
     };
 
     Ant* ant;
@@ -72,12 +74,12 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
 
     Carrier() : ant(nullptr), world(nullptr) {}
 
-    Carrier(Ant* ant, Territory territory, Coord broadcastPoint, Coord heading, AntWorld& world){
-        this->ant = ant;
-        this->territory = territory;
-        this->broadcastPoint = broadcastPoint;
-        this->heading = heading;
-        this->world = &world;
+    Carrier(Ant* ant, Territory territory, Coord broadcastPoint, Coord heading, AntWorld& world)
+        : ant(ant), territory(territory), broadcastPoint(broadcastPoint), heading(heading), world(&world) {}
+
+    void resetSignal(){
+        signalCount = 0;
+        std::fill(signalBuffer, signalBuffer + 6, false);
     }
 
     void moveToListeningPoint(){
@@ -93,8 +95,14 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
         }
         safeMove(*ant, listeningPoint, *world);
         ant->erasePheromone(world->pheromoneMap);
-        state = RECEIVE_SIGNAL;
-        // TODO: insufficient energy?
+
+        // If the ant could not reach within pheromone range of broadcast point, search independently
+        if (std::abs(broadcastPoint.first - ant->position.first) > ant->pheromoneRadius ||
+            std::abs(broadcastPoint.second - ant->position.second) > ant->pheromoneRadius){
+            state = INDEPENDENT_SEARCH;
+        } else {
+            state = RECEIVE_SIGNAL;
+        }
     }
 
     void receiveSignal(){
@@ -106,13 +114,12 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
         if (signalCount == 6){
             Coord rel = decodeSignal(signalBuffer);
 
-            if (rel.first == 0 && rel.second == 0){
+            if (rel == SIGNAL_DEAD){
                 state = INDEPENDENT_SEARCH; // dead scout — switch to independent search
-                signalCount = 0;
-                std::fill(signalBuffer, signalBuffer + 6, false);
+                resetSignal();
                 return;
             }
-            else if (rel.first == -4 && rel.second == -4){ // "over" signal (-4, -4)
+            else if (rel == SIGNAL_OVER){ // "over" signal (-4, -4)
                 // Wait for the 7th (buffer) tick before moving so scout and carrier advance in lockstep
                 return;
             }
@@ -121,16 +128,14 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
             int tripCost = shortestPathCost(ant->position, foodCoord, *world) + shortestPathCost(foodCoord, ant->homeCoord, *world);
             if (tripCost < ant->energy && world->pheromoneMap[ant->position.first][ant->position.second] == 0){ // full trip possible & signal unclaimed
                 ant->dropPheromone(world->pheromoneMap); // mark that the signal has been answered
-                
                 safeMove(*ant, foodCoord, *world);
                 if (ant->carryingFood){ 
                     safeMove(*ant, ant->homeCoord, *world);
                     state = MOVE_TO_LISTENING_POINT;
-                    signalCount = 0;
-                    std::fill(signalBuffer, signalBuffer + 6, false);
+                    resetSignal();
                     return;
                 } else { // food was taken before we got here; grab anything visible
-                    std::vector<Coord> visible = ant->foodScan(world->foodMap);
+                     std::vector<Coord> visible = ant->foodScan(world->foodMap);
                     if (!visible.empty()){
                         int fallbackCost = shortestPathCost(ant->position, visible[0], *world) + shortestPathCost(visible[0], ant->homeCoord, *world);
                         if (fallbackCost < ant->energy){
@@ -138,8 +143,7 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
                             if (ant->carryingFood){
                                 safeMove(*ant, ant->homeCoord, *world);
                                 state = MOVE_TO_LISTENING_POINT;
-                                signalCount = 0;
-                                std::fill(signalBuffer, signalBuffer + 6, false);
+                                resetSignal();
                                 return;
                             }
                         }
@@ -153,21 +157,19 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
 
         if (signalCount >= 7){
             Coord rel = decodeSignal(signalBuffer);
-            if (rel.first == -4 && rel.second == -4){
+            if (rel == SIGNAL_OVER){
                 broadcastPoint = territory.nextVantage(broadcastPoint, heading);
                 state = MOVE_TO_LISTENING_POINT;
             }
             world->pheromoneMap[ant->position.first][ant->position.second] = 0;
-            signalCount = 0; // reset signal count and buffer after buffer tick
-            std::fill(signalBuffer, signalBuffer + 6, false);
+            resetSignal();
         }
     }
 
     void die(){
-        this->dead = true;
-        this->state = DEAD;
-        this->ant->energy = 1;
-        this->ant->erasePheromone(world->pheromoneMap);
+        dead = true;
+        ant->energy = 1;
+        ant->erasePheromone(world->pheromoneMap);
     }
 
     void independentSearch(){
@@ -180,7 +182,6 @@ class Carrier{ // wrapper for carrier ant; allows us to track other info for car
             case MOVE_TO_LISTENING_POINT: moveToListeningPoint(); break;
             case RECEIVE_SIGNAL:          receiveSignal(); break;
             case INDEPENDENT_SEARCH:      independentSearch(); break;
-            case DEAD:                    die(); break;
         }
         if (ant->energy <= 1) die();
     }
@@ -192,8 +193,7 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
         ASSUME_VANTAGE = 0,
         SIGNAL_FOOD,
         SIGNAL_OVER,
-        INDEPENDENT_SEARCH,
-        DEAD
+        INDEPENDENT_SEARCH
     };
 
     Ant* ant;
@@ -206,13 +206,12 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
     Coord broadcastPoint;
     AntWorld* world;
 
-    Scout(Ant* ant, Territory territory, AntWorld& world){
-        this->ant = ant;
-        this->territory = territory;
-        this->broadcastPoint = territory.startPoint(ant->foodRadius);
-        this->heading = territory.startHeading(ant->foodRadius);
-        this->world = &world;
-    }
+    Scout(Ant* ant, Territory territory, AntWorld& world)
+        : ant(ant),
+          territory(territory),
+          heading(territory.startHeading(ant->foodRadius)),
+          broadcastPoint(territory.startPoint(ant->foodRadius)),
+          world(&world) {}
 
     void assumeVantage(){
         safeMove(*ant, broadcastPoint, *world);
@@ -221,7 +220,7 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
         } else {
             // Can't reach vantage — insufficient energy for the terrain cost.
             // Die so carriers detect it via the (0,0) signal.
-            state = DEAD;
+            die();
         }
     }
 
@@ -295,10 +294,9 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
     }
 
     void die(){
-        this->dead = true;
-        this->state = DEAD;
-        this->ant->energy = 1;
-        this->ant->erasePheromone(world->pheromoneMap);
+        dead = true;
+        ant->energy = 1;
+        ant->erasePheromone(world->pheromoneMap);
     }
 
     void forage(){
@@ -308,7 +306,6 @@ class Scout{ // wrapper for scout ant; allows us to track other info for scout
             case SIGNAL_FOOD:        signalFood(); break;
             case SIGNAL_OVER:        signalOver(); break;
             case INDEPENDENT_SEARCH: independentSearch(); break;
-            case DEAD:               die(); break;
         }
         if (ant->energy <= 1) die();
     }
@@ -339,7 +336,6 @@ void clearImmediateArea(std::vector<Ant>& ants, AntWorld& world){
             }
         }
     }
-    // TODO: if no ant can make the round trip (shouldn't really happen)
 }
 
 // ============================================================================

@@ -46,7 +46,7 @@ std::vector<int> Analysis::getFoodDists(const AntWorld &world){
     return foodAtDist;
 }
 
-double Analysis::greedyOptimum(std::vector<int> antEnergies){ // TODO: rewrite so it flows more naturally 
+double Analysis::greedyOptimum(std::vector<int> antEnergies){ 
     /*
     count sort round trip distances to each food source
     iterate through that list and subtract distances while incrementing food collected until we run out of energy

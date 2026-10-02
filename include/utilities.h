@@ -24,7 +24,6 @@ struct Territory {
 
     bool within(Coord p) const;
     double angle(Coord p) const;
-    bool crosses45(Coord a, Coord b) const;
     Coord nextVantage(Coord currentVantage, Coord& heading);
     Coord startPoint(int foodRadius);
     Coord startHeading(int foodRadius);
@@ -35,8 +34,5 @@ int shortestPathCost(Coord start, Coord dest, AntWorld& world);
 bool sortByDistance(Coord a, Coord b, Coord referencePoint, AntWorld& world);
 bool roundTrip(Ant& ant, Coord dest, AntWorld& world);
 Coord safeMove(Ant& ant, Coord dest, AntWorld& world);
-
-// Debugging / Logging
-void outputEnergies(std::vector<Ant> ants);
 
 #endif // DEV_CHALLENGE_UTILITY_H

@@ -27,13 +27,19 @@ public:
     SimpleAnt() = default;
 
     SimpleAnt(Ant* ant, const Territory& territory, AntWorld& world)
-        : ant(ant), territory(territory), world(&world) {
-        this->currentVantage = this->territory.startPoint(ant->foodRadius);
-        this->targetVantage = this->currentVantage;
-        this->heading = this->territory.startHeading(ant->foodRadius);
-        this->returnCoord = this->currentVantage;
-        this->state = EXPLORING;
-        this->dead = false;
+        : ant(ant),
+          territory(territory),
+          currentVantage(this->territory.startPoint(ant->foodRadius)),
+          targetVantage(currentVantage),
+          heading(this->territory.startHeading(ant->foodRadius)),
+          returnCoord(currentVantage),
+          state(EXPLORING),
+          dead(false),
+          world(&world) {}
+
+    void headHome() {
+        safeMove(*ant, ant->homeCoord, *world);
+        state = (ant->position == ant->homeCoord) ? WAIT_FOR_SCORE : RETURNING_HOME;
     }
 
     void explore() {
@@ -41,12 +47,7 @@ public:
         int homeCost = shortestPathCost(ant->position, ant->homeCoord, *world);
         // Prevents ants from going too far to return home
         if (ant->energy <= homeCost + 2) {
-            safeMove(*ant, ant->homeCoord, *world);
-            if (ant->position == ant->homeCoord) {
-                state = WAIT_FOR_SCORE;
-            } else {
-                state = RETURNING_HOME;
-            }
+            headHome();
             return;
         }
 
@@ -96,22 +97,12 @@ public:
 
         if (ant->carryingFood) {
             returnCoord = ant->position;
-            safeMove(*ant, ant->homeCoord, *world);
-            if (ant->position == ant->homeCoord) {
-                state = WAIT_FOR_SCORE;
-            } else {
-                state = RETURNING_HOME;
-            }
+            headHome();
             return;
         }
 
         if (ant->position == prevPos) {
-            safeMove(*ant, ant->homeCoord, *world);
-            if (ant->position == ant->homeCoord) {
-                state = WAIT_FOR_SCORE;
-            } else {
-                state = RETURNING_HOME;
-            }
+            headHome();
             return;
         }
     }
@@ -133,7 +124,7 @@ public:
         }
 
         // If no visible food can be safely collected and brought home, do not collect
-        if (targetFood == Coord(-1,-1)) {
+        if (targetFood == Coord(-1, -1)) {
             return false;
         }
 
@@ -144,13 +135,7 @@ public:
         safeMove(*ant, targetFood, *world);
 
         if (ant->carryingFood) {
-            // Take food home
-            safeMove(*ant, ant->homeCoord, *world);
-            if (ant->position == ant->homeCoord) {
-                state = WAIT_FOR_SCORE;
-            } else {
-                state = RETURNING_HOME;
-            }
+            headHome();
             return true;
         } else {
             state = EXPLORING;
@@ -159,10 +144,7 @@ public:
     }
 
     void returnHome() {
-        safeMove(*ant, ant->homeCoord, *world);
-        if (ant->position == ant->homeCoord) {
-            state = WAIT_FOR_SCORE;
-        }
+        headHome();
     }
 
     void waitForScore() {
@@ -171,11 +153,11 @@ public:
     }
 
     void returnToStored() {
-        // Safety: ensure ant has enough energy to reach storedCoord AND return home
+        // Safety: ensure ant has enough energy to reach returnCoord AND return home
         int roundTripStored = shortestPathCost(ant->position, returnCoord, *world) + 
                               shortestPathCost(returnCoord, ant->homeCoord, *world);
         if (roundTripStored >= ant->energy) {
-            // Cannot afford to return all the way to storedCoord and come back; explore locally
+            // Cannot afford to return all the way to returnCoord and come back; explore locally
             state = EXPLORING;
             explore();
             return;
@@ -190,8 +172,8 @@ public:
     }
 
     void die() {
-        this->dead = true;
-        this->ant->energy = 1;
+        dead = true;
+        ant->energy = 1;
     }
 
     void forage() {
@@ -205,11 +187,6 @@ public:
         if (ant->energy <= 1) die();
     }
 };
-
-
-
-
-
 
 // Below is for testing and analysis
 
