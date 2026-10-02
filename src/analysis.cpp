@@ -15,6 +15,7 @@ Analysis::Analysis(const AntWorld &world) : world(world){
 }
 
 double Analysis::results(){
+    if (this->totalFood == 0) return 0.0;
     return static_cast<double>(this->world.score) / this->totalFood;
 }
 
@@ -28,12 +29,15 @@ std::vector<int> Analysis::getFoodDists(const AntWorld &world){
             if(world.foodMap[row][col] == 1){
                 std::vector<Coord> path = shortestPath(world.terrainMap, world.homeCoordinates, Coord(row, col));
                 int travelEnergy = 0;
-                for (int i = 1; i < path.size(); ++i){
+                for (size_t i = 1; i < path.size(); ++i){
                     auto [r1, c1] = path[i - 1];
                     auto [r2, c2] = path[i];
 
                     int cost = 1 + std::abs(world.terrainMap[r1][c1] - world.terrainMap[r2][c2]);
                     travelEnergy += cost;
+                }
+                if (travelEnergy >= static_cast<int>(foodAtDist.size())){
+                    foodAtDist.resize(travelEnergy + 1, 0);
                 }
                 foodAtDist[travelEnergy]++;
             }
@@ -49,12 +53,13 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies){ // TODO: rewrite s
     divide by total food on the map
     The food selection is optimal but the ant assignment may be improvable
     */
+    if (totalFood == 0) return 0.0;
     std::vector<int> foodAtDist = getFoodDists(world);
     int optimal = 0;
-    for (int dist = 0; dist < foodAtDist.size(); dist++ ){
+    for (int dist = 0; dist < static_cast<int>(foodAtDist.size()); dist++ ){
         while(foodAtDist[dist] > 0 && antEnergies.size() > 0 ){
             // find first suitable ant
-            for (int a = 0; a < antEnergies.size(); a++){
+            for (size_t a = 0; a < antEnergies.size(); a++){
                 if (antEnergies[a] >= dist*2){
                     antEnergies[a] -= dist*2;
                     optimal++;
@@ -67,6 +72,8 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies){ // TODO: rewrite s
                 foodAtDist[dist] -= 1;
                 foodAtDist[dist - (antEnergies.back() - dist)] += 1;
                 antEnergies.pop_back();
+                dist = -1;
+                break;
             }
             else {
                 goto finish;
@@ -81,11 +88,12 @@ double Analysis::greedyOptimum(std::vector<int> antEnergies){ // TODO: rewrite s
 
 double Analysis::naiveOptimum(std::vector<int> antEnergies){ 
     // assumes no lost energy due to mismatches ie 10 ants with 1 energy are assumed to be able to get a food at dist 5 with round trip cost 10
+    if (totalFood == 0) return 0.0;
     std::sort(antEnergies.begin(), antEnergies.end());
     std::vector<int> foodAtDist = getFoodDists(world);
     int energyTotal = std::accumulate(antEnergies.begin(), antEnergies.end(), 0);
     int foodPotential = 0;
-    for (int dist = 0; dist < foodAtDist.size(); dist++){
+    for (int dist = 0; dist < static_cast<int>(foodAtDist.size()); dist++){
         while (foodAtDist[dist] > 0){
             if (energyTotal >= dist*2){
                 energyTotal -= dist*2;
@@ -101,13 +109,14 @@ double Analysis::naiveOptimum(std::vector<int> antEnergies){
 
 double Analysis::efficiency(){ // the analysis needs to be instantiated before the run for this to work
     int energyTotal = std::accumulate(antEnergies.begin(), antEnergies.end(), 0);
-    return (double)energyTotal / world.score;
+    if (energyTotal == 0) return 0.0;
+    return (double)world.score / energyTotal;
 }
 
 int Analysis::incompletes(){ // BUG: if an incomplete return ends on a tile which started with food it wont be counted
     int count = 0;
-    for (int i = 0; i < world.foodMap.size(); i++){
-        for (int j = 0; j < world.foodMap[0].size(); j++){
+    for (size_t i = 0; i < world.foodMap.size(); i++){
+        for (size_t j = 0; j < world.foodMap[0].size(); j++){
             if (world.foodMap[i][j] == 1 && initFoodMap[i][j] == 0){ // food at a new location (dropped by a dead ant) counts as an incomplete return
                 count++;
             }
